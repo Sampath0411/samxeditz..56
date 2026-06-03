@@ -152,6 +152,45 @@
   .status:hover { border-color: var(--glass-border2); box-shadow: var(--neon-md); text-shadow: var(--neon-text); }
   .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text); box-shadow: 0 0 8px rgba(255,255,255,0.4); animation: pulse-dot 2s ease-in-out infinite; }
 
+  /* ===== FOLLOW BUTTON ===== */
+  .follow-btn {
+    display: flex; align-items: center; gap: 10px; margin-top: 20px;
+    padding: 12px 28px; border-radius: 100px; text-decoration: none;
+    color: #fff; font-size: 11px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 2px; font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
+    border: none; cursor: pointer; transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 20px rgba(232, 42, 123, 0.3), 0 0 40px rgba(98, 40, 215, 0.15);
+    animation: followPulse 2.5s ease-in-out infinite;
+    position: relative; overflow: hidden;
+  }
+  .follow-btn::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent 60%);
+    pointer-events: none;
+  }
+  .follow-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 0 30px rgba(232, 42, 123, 0.5), 0 0 60px rgba(98, 40, 215, 0.25), 0 8px 30px rgba(0,0,0,0.3);
+    animation: none;
+  }
+  .follow-btn:active { transform: scale(0.97); }
+  .follow-icon {
+    display: flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; flex-shrink: 0;
+  }
+  .follow-icon svg { width: 22px; height: 22px; fill: #fff; }
+  .follow-text { flex: 1; text-align: center; }
+  .follow-arrow {
+    font-size: 16px; font-weight: 400; opacity: 0.8;
+    transition: transform 0.3s;
+  }
+  .follow-btn:hover .follow-arrow { transform: translateX(4px); opacity: 1; }
+  @keyframes followPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(232, 42, 123, 0.3), 0 0 40px rgba(98, 40, 215, 0.15); }
+    50% { box-shadow: 0 0 30px rgba(232, 42, 123, 0.5), 0 0 60px rgba(98, 40, 215, 0.25); }
+  }
+
   /* ===== STATS ===== */
   .stats {
     display: flex; align-items: center; justify-content: center;
@@ -250,6 +289,25 @@
   }
   .link-arrow svg { width: 16px; height: 16px; fill: currentColor; }
   .link-card:hover .link-arrow { color: var(--text); background: rgba(255,255,255,0.08); border-color: var(--glass-border); transform: translateX(5px); }
+
+  /* ===== ADDRESS ===== */
+  .address-card {
+    display: flex; align-items: center; gap: 14px; padding: 18px 20px;
+    background: var(--glass); border: 1px solid var(--glass-border);
+    border-radius: 20px; margin-bottom: 0;
+    box-shadow: var(--neon-sm); backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); transition: all 0.35s;
+  }
+  .address-card:hover { border-color: var(--glass-border2); background: var(--glass2); box-shadow: var(--neon-md); }
+  .address-icon {
+    width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0;
+    background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.02);
+  }
+  .address-icon svg { width: 20px; height: 20px; fill: var(--text); }
+  .address-line { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .address-sub { font-size: 10px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
 
   /* ===== SERVICES ===== */
   .services { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -376,6 +434,13 @@
       <div class="status-dot"></div>
       Open for Collabs
     </div>
+    <a href="https://www.instagram.com/samxeditz.56" target="_blank" class="follow-btn">
+      <span class="follow-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </span>
+      <span class="follow-text">Follow on Instagram</span>
+      <span class="follow-arrow">→</span>
+    </a>
   </div>
 
   <!-- Stats -->
@@ -447,6 +512,18 @@
       <div class="link-text"><div class="link-label">Personal Instagram</div><div class="link-sub">@sampath.exe</div></div>
       <div class="link-arrow"><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg></div>
     </a>
+  </div>
+
+  <!-- Address -->
+  <div class="section-label">Location</div>
+  <div class="address-card">
+    <div class="address-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+    </div>
+    <div class="address-text">
+      <div class="address-line">Visakhapatnam, Andhra Pradesh</div>
+      <div class="address-sub">India 🇮🇳</div>
+    </div>
   </div>
 
   <!-- Contact -->
