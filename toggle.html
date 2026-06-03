@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mode Toggle</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  .mode-toggle{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+    border-radius:30px;padding:4px;cursor:pointer;
+    transition:all 0.35s;
+    box-shadow:0 0 12px rgba(255,255,255,0.04);
+    font-family:'Inter',sans-serif;
+  }
+  .mode-toggle:hover{
+    border-color:rgba(255,255,255,0.2);
+    box-shadow:0 0 20px rgba(255,255,255,0.08);
+  }
+  .mode-btn{
+    padding:10px 22px;border-radius:24px;font-size:12px;font-weight:700;
+    text-transform:uppercase;letter-spacing:2px;transition:all 0.35s;
+    color:rgba(255,255,255,0.5);text-decoration:none;white-space:nowrap;
+    border:none;background:transparent;cursor:pointer;font-family:'Inter',sans-serif;
+  }
+  .mode-btn.active{
+    background:#fff;color:#000;
+    box-shadow:0 0 15px rgba(255,255,255,0.2);
+  }
+  .mode-btn:not(.active):hover{color:#fff}
+  .dev-indicator{
+    display:none;width:8px;height:8px;border-radius:50%;
+    background:#c8ff00;margin-left:6px;
+    box-shadow:0 0 8px rgba(200,255,0,0.5);
+    animation:devPulse 2s ease-in-out infinite;
+  }
+  .mode-btn.active .dev-indicator{display:inline-block}
+  @keyframes devPulse{
+    0%,100%{opacity:1;box-shadow:0 0 8px rgba(200,255,0,0.5)}
+    50%{opacity:0.4;box-shadow:0 0 15px rgba(200,255,0,0.8)}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== COPY FROM HERE ===== -->
+<div class="mode-toggle" id="modeToggle">
+  <button class="mode-btn active" id="editzBtn" onclick="switchMode('editz')">Editz</button>
+  <button class="mode-btn" id="devBtn" onclick="switchMode('dev')">Dev<span class="dev-indicator"></span></button>
+</div>
+
+<script>
+  // Mode toggle with cross-site sync via localStorage
+  const EDITZ_URL = 'http://localhost:8080/index.html';  // your editz site
+  const DEV_URL = 'https://sampath-portfolio0411.vercel.app/';  // your dev site
+
+  function switchMode(mode) {
+    const editzBtn = document.getElementById('editzBtn');
+    const devBtn = document.getElementById('devBtn');
+
+    if (mode === 'editz') {
+      editzBtn.classList.add('active');
+      devBtn.classList.remove('active');
+      localStorage.setItem('siteMode', 'editz');
+      window.location.href = EDITZ_URL;
+    } else {
+      editzBtn.classList.remove('active');
+      devBtn.classList.add('active');
+      localStorage.setItem('siteMode', 'dev');
+      window.location.href = DEV_URL;
+    }
+  }
+
+  // On page load: check localStorage and set active state
+  (function() {
+    const savedMode = localStorage.getItem('siteMode');
+    const editzBtn = document.getElementById('editzBtn');
+    const devBtn = document.getElementById('devBtn');
+
+    if (savedMode === 'dev') {
+      editzBtn.classList.remove('active');
+      devBtn.classList.add('active');
+    } else {
+      editzBtn.classList.add('active');
+      devBtn.classList.remove('active');
+    }
+
+    // Listen for mode changes from other tabs/sites
+    window.addEventListener('storage', function(e) {
+      if (e.key === 'siteMode') {
+        if (e.newValue === 'dev') {
+          editzBtn.classList.remove('active');
+          devBtn.classList.add('active');
+        } else {
+          editzBtn.classList.add('active');
+          devBtn.classList.remove('active');
+        }
+      }
+    });
+  })();
+</script>
+<!-- ===== COPY TO HERE ===== -->
+
+</body>
+</html>
