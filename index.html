@@ -165,9 +165,9 @@
   .buy-cta svg{width:20px;height:20px;fill:#fff}
 
   /* ===== BUY MODAL ===== */
-  .buy-modal{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:all 0.3s;padding:20px}
+  .buy-modal{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:all 0.3s;padding:40px 20px;overflow-y:auto}
   .buy-modal.show{opacity:1;visibility:visible}
-  .buy-modal-inner{width:100%;max-width:400px;padding:32px;border-radius:24px;background:#0a0a0a;border:1px solid var(--gb);text-align:center;transform:translateY(30px) scale(0.95);transition:all 0.35s cubic-bezier(0.4,0,0.2,1);max-height:90vh;overflow-y:auto;position:relative}
+  .buy-modal-inner{width:100%;max-width:380px;padding:28px;border-radius:20px;background:#0a0a0a;border:1px solid var(--gb);text-align:center;transform:translateY(30px) scale(0.95);transition:all 0.35s cubic-bezier(0.4,0,0,0.2,1);flex-shrink:0}
   .buy-modal.show .buy-modal-inner{transform:translateY(0) scale(1)}
   .buy-modal-x{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;background:var(--glass);border:1px solid var(--gb);color:var(--muted);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s;z-index:1}
   .buy-modal-x:hover{background:var(--glass2);color:var(--text)}
@@ -261,10 +261,14 @@
     .footer-links{gap:16px;flex-wrap:wrap;justify-content:center}
     .follow-btn{padding:12px 24px;font-size:11px}
     body{padding-top:60px}
-    .buy-modal-inner{padding:24px}
-    .buy-modal-emoji{font-size:28px}
-    .buy-modal-title{font-size:16px}
-    .buy-modal-price{font-size:30px}
+    .buy-modal{padding:20px}
+    .buy-modal-inner{padding:20px;max-width:340px}
+    .buy-modal-emoji{font-size:24px;margin-bottom:4px}
+    .buy-modal-title{font-size:15px}
+    .buy-modal-price{font-size:26px;margin-bottom:4px}
+    .buy-modal-desc{font-size:11px;margin-bottom:10px}
+    .buy-modal-list li{font-size:11px;padding:4px 0}
+    .buy-modal-btn{padding:11px;font-size:11px}
   }
   @media(max-width:360px){
     .wrapper{padding:24px 10px 40px}.link-card{padding:12px 10px}
@@ -387,14 +391,13 @@
       <div class="buy-modal-emoji">🛒</div>
       <div class="buy-modal-title">Website Assets</div>
       <div class="buy-modal-price"><small>$</small>14.99</div>
-      <div class="buy-modal-desc">Complete website template with all assets, effects, and source code.</div>
       <ul class="buy-modal-list">
-        <li>✅ HTML + CSS + JS source files</li>
-        <li>✅ Glassmorphism UI design</li>
+        <li>✅ HTML + CSS + JS files</li>
+        <li>✅ Glassmorphism UI</li>
         <li>✅ Neon glow effects</li>
-        <li>✅ Portfolio + Pricing sections</li>
+        <li>✅ Portfolio sections</li>
         <li>✅ Fully responsive</li>
-        <li>✅ All images & assets</li>
+        <li>✅ All images included</li>
       </ul>
       <a href="https://wa.me/919291493225?text=Hey!%20I%20want%20to%20buy%20the%20website%20assets%20-%20%2414.99" target="_blank" class="buy-modal-btn" id="buyWhatsApp">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
