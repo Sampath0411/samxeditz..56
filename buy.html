@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buy Website Assets — samxeditz.56</title>
+<meta name="description" content="Buy premium website template assets — Glassmorphism UI, neon effects, portfolio, fully responsive.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --glass:rgba(255,255,255,0.04);--glass2:rgba(255,255,255,0.08);
+    --gb:rgba(255,255,255,0.08);--gb2:rgba(255,255,255,0.18);
+    --text:#fff;--muted:#888;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:#000;color:var(--text);min-height:100vh}
+
+  /* Background */
+  body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 500px at 15% 25%,rgba(255,255,255,0.04) 0%,transparent 70%),radial-gradient(ellipse 500px 600px at 85% 75%,rgba(255,255,255,0.03) 0%,transparent 70%);animation:bgFloat 15s ease-in-out infinite alternate}
+  @keyframes bgFloat{0%{transform:scale(1);opacity:0.6}100%{transform:scale(1.06);opacity:1}}
+  body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.6' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.01'/%3E%3C/svg%3E")}
+
+  /* Scrollbar */
+  ::-webkit-scrollbar{width:6px}
+  ::-webkit-scrollbar-track{background:transparent}
+  ::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:10px}
+  html{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.15) transparent}
+
+  /* Navbar */
+  .navbar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px 24px;background:rgba(0,0,0,0.7);backdrop-filter:blur(20px);border-bottom:1px solid var(--gb)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:680px}
+  .nav-logo{font-size:16px;font-weight:900;color:var(--text);text-transform:uppercase;letter-spacing:3px;text-decoration:none;text-shadow:0 0 15px rgba(255,255,255,0.15)}
+  .nav-back{display:flex;align-items:center;gap:6px;padding:8px 18px;border-radius:24px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);text-decoration:none;background:var(--glass);border:1px solid var(--gb);transition:all 0.3s}
+  .nav-back:hover{color:var(--text);border-color:var(--gb2);background:var(--glass2)}
+  .nav-back svg{width:14px;height:14px;fill:currentColor}
+
+  /* Wrapper */
+  .wrapper{position:relative;z-index:1;width:100%;max-width:680px;padding:100px 24px 60px;margin:0 auto}
+
+  /* Hero */
+  .hero{text-align:center;padding:40px 0 50px}
+  .hero-icon{font-size:56px;margin-bottom:16px;display:block}
+  .hero-title{font-size:clamp(28px,5vw,38px);font-weight:900;text-transform:uppercase;letter-spacing:-1px;margin-bottom:10px;text-shadow:0 0 20px rgba(255,255,255,0.15)}
+  .hero-sub{font-size:15px;color:var(--muted);max-width:480px;margin:0 auto 28px;line-height:1.7}
+  .price-tag{display:inline-flex;align-items:baseline;gap:4px;padding:12px 28px;border-radius:16px;background:var(--glass);border:1px solid var(--gb);margin-bottom:32px}
+  .price-tag .currency{font-size:22px;font-weight:700;color:var(--muted)}
+  .price-tag .amount{font-size:42px;font-weight:900;text-shadow:0 0 20px rgba(255,255,255,0.2)}
+  .price-tag .period{font-size:14px;color:var(--muted);margin-left:4px}
+
+  /* Section */
+  .section-label{font-size:9px;text-transform:uppercase;letter-spacing:7px;color:var(--dim);margin-bottom:14px;font-weight:700;display:flex;align-items:center;gap:12px}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--gb)}
+  .section-label+.section-label{margin-top:40px}
+
+  /* Features Grid */
+  .features-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:40px}
+  .feature-card{padding:22px;background:var(--glass);border:1px solid var(--gb);border-radius:18px;transition:all 0.35s;backdrop-filter:blur(10px)}
+  .feature-card:hover{border-color:var(--gb2);background:var(--glass2);transform:translateY(-2px)}
+  .feature-icon{font-size:28px;margin-bottom:10px;display:block}
+  .feature-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+  .feature-desc{font-size:11px;color:var(--muted);line-height:1.6}
+
+  /* What's Included */
+  .include-list{list-style:none;padding:0;margin:0 0 40px}
+  .include-list li{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--glass);border:1px solid var(--gb);border-radius:14px;margin-bottom:8px;font-size:14px;transition:all 0.3s}
+  .include-list li:hover{border-color:var(--gb2);background:var(--glass2)}
+  .include-list li .check{width:22px;height:22px;border-radius:50%;background:rgba(74,222,128,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .include-list li .check svg{width:12px;height:12px;fill:#4ade80}
+
+  /* Preview */
+  .preview-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:40px}
+  .preview-item{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:9/16;background:var(--glass);border:1px solid var(--gb);cursor:pointer;transition:all 0.35s}
+  .preview-item:hover{border-color:rgba(255,255,255,0.25);transform:translateY(-3px);box-shadow:0 0 25px rgba(255,255,255,0.08)}
+  .preview-item img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* CTA */
+  .cta-section{text-align:center;padding:20px 0 40px}
+  .cta-text{font-size:14px;color:var(--muted);margin-bottom:20px}
+  .cta-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 42px;border-radius:100px;border:none;cursor:pointer;background:linear-gradient(135deg,#f9ce34 0%,#ee2a7b 50%,#6228d7 100%);color:#fff;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:2px;text-decoration:none;transition:all 0.35s;box-shadow:0 0 30px rgba(232,42,123,0.3)}
+  .cta-btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 0 40px rgba(232,42,123,0.5)}
+  .cta-btn:active{transform:scale(0.97)}
+  .cta-btn svg{width:20px;height:20px;fill:#fff}
+  .cta-small{font-size:11px;color:var(--muted);margin-top:12px}
+
+  /* Footer */
+  .footer{text-align:center;padding:30px 0;border-top:1px solid var(--gb);margin-top:20px}
+  .footer p{font-size:12px;color:var(--muted)}
+  .footer a{color:var(--text);text-decoration:none;font-weight:600}
+
+  /* Responsive */
+  @media(max-width:768px){
+    .features-grid{grid-template-columns:1fr}
+    .preview-grid{grid-template-columns:1fr 1fr;gap:6px}
+    .preview-item:nth-child(n+5){display:none}
+  }
+  @media(max-width:480px){
+    .wrapper{padding:80px 16px 40px}
+    .hero{padding:20px 0 30px}
+    .hero-icon{font-size:42px}
+    .hero-title{font-size:24px}
+    .hero-sub{font-size:13px}
+    .price-tag .amount{font-size:32px}
+    .include-list li{font-size:12px;padding:10px 14px}
+    .cta-btn{padding:14px 32px;font-size:12px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">samxeditz</a>
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      Back
+    </a>
+  </div>
+</nav>
+
+<div class="wrapper">
+
+  <!-- Hero -->
+  <div class="hero">
+    <span class="hero-icon">🛒</span>
+    <h1 class="hero-title">Website Assets</h1>
+    <p class="hero-sub">Premium glassmorphism website template with neon effects, portfolio, pricing, and fully responsive design. Ready to deploy.</p>
+    <div class="price-tag">
+      <span class="currency">$</span>
+      <span class="amount">14.99</span>
+      <span class="period">one-time</span>
+    </div>
+  </div>
+
+  <!-- What's Included -->
+  <div class="section-label">What's Included</div>
+  <ul class="include-list">
+    <li><span class="check"><svg viewBox="0 0 20 20"><path d="M7.629 14.571L3.515 10.457l1.414-1.414 2.7 2.7 8.672-8.672 1.414 1.414z"/></svg></span> HTML + CSS + JS source files</li>
+    <li><span class="check"><svg viewBox="0 0 20 20"><path d="M7.629 14.571L3.515 10.457l1.414-1.414 2.7 2.7 8.672-8.672 1.414 1.414z"/></svg></span> Glassmorphism UI design</li>
+    <li><span class="check"><svg viewBox="0 0 20 20"><path d="M7.629 14.571L3.515 10.457l1.414-1.414 2.7 2.7 8.672-8.672 1.414 1.414z"/></svg></span> Neon glow + cursor effects</li>
+    <li><span class="check"><svg viewBox="0 0 20 20"><path d="M7.629 14.571L3.515 10.457l1.414-1.414 2.7 2.7 8.672-8.672 1.414 1.414z"/></svg></span> Portfolio + Pricing + Reviews sections</li>
+    <li><span class="check"><svg viewBox="0 0 20 20"><path d="M7.629 14.571L3.515 10.457l1.414-1.414 2.7 2.7 8.672-8.672 1.414 1.414z"/></svg></span> Fully responsive (mobile, tablet, desktop)</li>
+    <li><span class="check"><svg viewBox="0 0 20 20"><path d="M7.629 14.571L3.515 10.457l1.414-1.414 2.7 2.7 8.672-8.672 1.414 1.414z"/></svg></span> Starfield particle background</li>
+    <li><span class="check"><svg viewBox="0 0 20 20"><path d="M7.629 14.571L3.515 10.457l1.414-1.414 2.7 2.7 8.672-8.672 1.414 1.414z"/></svg></span> Typing animation + counter effects</li>
+    <li><span class="check"><svg viewBox="0 0 20 20"><path d="M7.629 14.571L3.515 10.457l1.414-1.414 2.7 2.7 8.672-8.672 1.414 1.414z"/></svg></span> All images & assets included</li>
+    <li><span class="check"><svg viewBox="0 0 20 20"><path d="M7.629 14.571L3.515 10.457l1.414-1.414 2.7 2.7 8.672-8.672 1.414 1.414z"/></svg></span> Free support for setup</li>
+  </ul>
+
+  <!-- Features -->
+  <div class="section-label">Features</div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">🎨</span>
+      <div class="feature-title">Glassmorphism UI</div>
+      <div class="feature-desc">Frosted glass cards with translucent borders and soft neon glow effects</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">✨</span>
+      <div class="feature-title">Neon Effects</div>
+      <div class="feature-desc">Cursor glow, starfield particles, pulsing animations, and smooth transitions</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📱</span>
+      <div class="feature-title">Fully Responsive</div>
+      <div class="feature-desc">Looks perfect on mobile, tablet, and desktop — automatically adapts</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⚡</span>
+      <div class="feature-title">Fast & Lightweight</div>
+      <div class="feature-desc">Pure HTML/CSS/JS — no frameworks, no dependencies, loads instantly</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔧</span>
+      <div class="feature-title">Easy to Customize</div>
+      <div class="feature-desc">Clean code structure — easily change colors, text, images, and links</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📦</span>
+      <div class="feature-title">All Assets Included</div>
+      <div class="feature-desc">Images, icons, fonts — everything you need in one download</div>
+    </div>
+  </div>
+
+  <!-- Preview -->
+  <div class="section-label">Preview</div>
+  <div class="preview-grid">
+    <div class="preview-item"><img src="assets/reel1.jpg" alt="Website preview 1" loading="lazy"></div>
+    <div class="preview-item"><img src="assets/reel2.jpg" alt="Website preview 2" loading="lazy"></div>
+    <div class="preview-item"><img src="assets/reel3.jpg" alt="Website preview 3" loading="lazy"></div>
+    <div class="preview-item"><img src="assets/reel4.jpg" alt="Website preview 4" loading="lazy"></div>
+    <div class="preview-item"><img src="assets/reel5.jpg" alt="Website preview 5" loading="lazy"></div>
+    <div class="preview-item"><img src="assets/reel6.jpg" alt="Website preview 6" loading="lazy"></div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <p class="cta-text">Ready to get this website? Chat with me on WhatsApp</p>
+    <a href="https://wa.me/919291493225?text=Hey!%20I%20want%20to%20buy%20the%20website%20assets%20-%20%2414.99" target="_blank" class="cta-btn">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Buy Now — $14.99
+    </a>
+    <p class="cta-small">One-time payment • Instant delivery • Free support</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>© 2026 samxeditz.56 · Crafted by <a href="https://www.instagram.com/sampath.exe">@sampath.exe</a></p>
+  </div>
+
+</div>
+
+</body>
+</html>
