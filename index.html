@@ -59,12 +59,17 @@ html{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.15) transparent}
 body{padding-top:72px}
 
 /* LOADER */
-#loader{position:fixed;inset:0;background:#000;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;transition:opacity 0.6s ease,visibility 0.6s ease}
+#loader{position:fixed;inset:0;background:#000;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;transition:opacity 0.8s ease,visibility 0.8s ease}
 #loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-.loader-letter{font-size:44px;font-weight:900;color:#fff;letter-spacing:12px;text-transform:uppercase;animation:lp 1.5s ease-in-out infinite}
-.loader-bar{width:100px;height:2px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden}
-.loader-bar::after{content:'';display:block;width:30px;height:2px;background:#fff;border-radius:2px;animation:ls 1.2s ease-in-out infinite}
-@keyframes lp{0%,100%{opacity:0.3}50%{opacity:1}}@keyframes ls{0%{transform:translateX(-30px)}100%{transform:translateX(130px)}}
+.loader-inner{display:flex;flex-direction:column;align-items:center;gap:20px}
+.loader-logo{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#f9ce34 0%,#ee2a7b 50%,#6228d7 100%);display:flex;align-items:center;justify-content:center;animation:loaderPulse 1.5s ease-in-out infinite}
+.loader-logo span{font-size:28px;font-weight:900;color:#fff;letter-spacing:0}
+.loader-track{width:120px;height:3px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden}
+.loader-fill{height:3px;width:40%;border-radius:3px;background:linear-gradient(90deg,#f9ce34,#ee2a7b,#6228d7);animation:loaderSlide 1.2s ease-in-out infinite}
+.loader-text{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:4px;animation:loaderFade 1.5s ease-in-out infinite}
+@keyframes loaderPulse{0%,100%{transform:scale(1);box-shadow:0 0 20px rgba(232,42,123,0.3)}50%{transform:scale(1.08);box-shadow:0 0 40px rgba(232,42,123,0.6)}}
+@keyframes loaderSlide{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}
+@keyframes loaderFade{0%,100%{opacity:0.4}50%{opacity:1}}
 
 /* WRAPPER */
 .wrapper{position:relative;z-index:1;width:100%;max-width:680px;margin:0 auto;padding:0 32px 72px;display:flex;flex-direction:column;align-items:stretch;opacity:0;transition:opacity 0.6s ease 0.3s}
@@ -196,7 +201,7 @@ body{padding-top:72px}
 </nav>
 
 <!-- Loader -->
-<div id="loader"><div class="loader-letter">S</div><div class="loader-bar"></div></div>
+<div id="loader"><div class="loader-inner"><div class="loader-logo"><span>S</span></div><div class="loader-track"><div class="loader-fill"></div></div><div class="loader-text">Loading</div></div></div>
 
 <div class="wrapper">
 
@@ -233,14 +238,6 @@ body{padding-top:72px}
   <!-- Location -->
   <div class="section-label">Location</div>
   <div class="address-card"><div class="address-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><div><div class="address-line">Visakhapatnam, Andhra Pradesh</div><div class="address-sub">India 🇮🇳</div></div></div>
-
-  <!-- Buy -->
-  <div id="pricing" class="section-label">Buy This Website</div>
-  <div class="buy-section">
-    <div class="buy-heading">Get This Website Template</div>
-    <div class="buy-sub">Glassmorphism UI &bull; Neon effects &bull; Portfolio &bull; Fully responsive &bull; All assets included</div>
-    <a href="buy.html" class="buy-link"><svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>Buy Now</a>
-  </div>
 
   <!-- Portfolio -->
   <div id="portfolio" class="section-label">Portfolio</div>
