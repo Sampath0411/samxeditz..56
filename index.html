@@ -56,7 +56,7 @@ html{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.15) transparent}
 .mobile-menu.open{opacity:1;visibility:visible}
 .mobile-link{color:var(--muted);text-decoration:none;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:3px;padding:12px 24px;border-radius:12px;transition:all 0.3s}
 .mobile-link:hover{color:var(--text);background:var(--glass)}
-body{padding-top:32px}
+body{padding-top:44px}
 
 /* LOADER */
 #loader{position:fixed;inset:0;background:#000;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;transition:opacity 0.6s ease,visibility 0.6s ease}
@@ -72,7 +72,7 @@ body{padding-top:32px}
 
 /* PROFILE */
 .profile{display:flex;flex-direction:column;align-items:center;margin-bottom:32px}
-.avatar-ring{width:110px;height:110px;border-radius:50%;padding:3px;margin-bottom:14px;position:relative;background:var(--gb);box-shadow:0 0 40px rgba(255,255,255,0.08)}
+.avatar-ring{width:140px;height:140px;border-radius:50%;padding:4px;margin-bottom:18px;position:relative;background:var(--gb);box-shadow:0 0 50px rgba(255,255,255,0.1)}
 .avatar-ring::before{content:'';position:absolute;inset:-3px;border-radius:50%;z-index:-1;background:conic-gradient(from 0deg,rgba(255,255,255,0.2),transparent 30%,rgba(255,255,255,0.2));animation:spin 10s linear infinite}
 .avatar-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid #000}
 .username{font-size:clamp(28px,5vw,40px);font-weight:900;letter-spacing:-1.5px;margin-bottom:10px;text-transform:uppercase;text-shadow:0 0 20px rgba(255,255,255,0.2);display:flex;align-items:center;gap:10px}
@@ -117,25 +117,6 @@ body{padding-top:32px}
 .buy-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 36px;border-radius:100px;background:linear-gradient(135deg,#f9ce34 0%,#ee2a7b 50%,#6228d7 100%);color:#fff;text-decoration:none;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:2px;transition:all 0.3s;box-shadow:0 0 25px rgba(232,42,123,0.25)}
 .buy-link:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 0 35px rgba(232,42,123,0.45)}.buy-link:active{transform:scale(0.97)}.buy-link svg{width:20px;height:20px;fill:#fff}
 
-/* CONTACT FORM */
-.contact-form-wrap{padding:28px;background:var(--glass);border:1px solid var(--gb);border-radius:22px;margin-bottom:40px;backdrop-filter:blur(10px)}
-.contact-form{display:flex;flex-direction:column;gap:12px}
-.form-row{display:flex;gap:12px}
-.contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:14px 18px;background:rgba(255,255,255,0.04);border:1px solid var(--gb);border-radius:14px;color:var(--text);font-size:13px;font-family:'Inter',sans-serif;outline:none;transition:all 0.3s;box-sizing:border-box}
-.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.06)}
-.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--dim)}
-.contact-form select option{background:#111;color:#fff}
-.contact-form textarea{resize:vertical;min-height:80px}
-.form-submit{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 36px;border-radius:100px;background:linear-gradient(135deg,#f9ce34 0%,#ee2a7b 50%,#6228d7 100%);color:#fff;border:none;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:2px;cursor:pointer;transition:all 0.3s;box-shadow:0 0 25px rgba(232,42,123,0.25)}
-.form-submit:hover{transform:translateY(-2px);box-shadow:0 0 35px rgba(232,42,123,0.45)}
-.form-submit:active{transform:scale(0.97)}
-@media(max-width:480px){.form-row{flex-direction:column;gap:12px}}
-
-/* TRUST BAR */
-.trust-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:20px;background:var(--glass);border:1px solid var(--gb);border-radius:18px;margin-bottom:40px;backdrop-filter:blur(10px)}
-.trust-item{text-align:center;flex:1}
-.trust-num{display:block;font-size:clamp(18px,3vw,24px);font-weight:900;color:var(--text);text-shadow:0 0 10px rgba(255,255,255,0.2)}
-.trust-label{display:block;font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-top:4px}
 
 /* PORTFOLIO */
 .portfolio-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
@@ -163,14 +144,14 @@ body{padding-top:32px}
 
 /* RESPONSIVE */
 @media(max-width:768px){.wrapper{max-width:560px;padding:0 24px 64px}.portfolio-grid{gap:6px}.portfolio-item{border-radius:12px}.nav-links{display:none}.hamburger{display:flex}.nav-toggle{display:none}}
-@media(max-width:480px){.wrapper{max-width:100%;padding:0 16px 48px}.navbar{padding:6px 16px}.nav-logo{font-size:13px;letter-spacing:2px}.nav-mode{padding:6px 12px;font-size:10px}body{padding-top:32px}
-.profile{margin-bottom:36px}.avatar-ring{width:88px;height:88px;margin-bottom:16px}.stat{padding:14px 0}.section-label{margin-bottom:10px}.section-label+.section-label{margin-top:28px}
+@media(max-width:480px){.wrapper{max-width:100%;padding:0 16px 48px}.navbar{padding:6px 16px}.nav-logo{font-size:13px;letter-spacing:2px}.nav-mode{padding:6px 12px;font-size:10px}body{padding-top:44px}
+.profile{margin-bottom:36px}.avatar-ring{width:110px;height:110px;margin-bottom:16px}.stat{padding:14px 0}.section-label{margin-bottom:10px}.section-label+.section-label{margin-top:28px}
 .portfolio-grid{grid-template-columns:1fr 1fr;gap:4px}.portfolio-item:nth-child(n+5){display:none}.services{grid-template-columns:1fr}.service-card{padding:14px;border-radius:14px}.testimonial-card{padding:14px;border-radius:14px}.testimonial-text{font-size:12px}
 .link-card{padding:14px 12px;gap:10px;border-radius:14px}.link-icon{width:42px;height:42px;border-radius:12px}.link-icon svg{width:16px;height:16px}.link-arrow{width:26px;height:26px}.link-arrow svg{width:14px;height:14px}
 .footer{padding-top:28px;gap:12px}.footer-links{gap:16px;flex-wrap:wrap;justify-content:center}.follow-btn{padding:12px 24px;font-size:11px}
 .buy-section{padding:20px}.buy-heading{font-size:15px}.buy-sub{font-size:12px}.buy-link{padding:12px 28px;font-size:12px}}
 @media(max-width:360px){.wrapper{padding:0 10px 40px}.link-card{padding:12px 10px}}
-@media(min-width:1200px){.wrapper{max-width:740px;padding:0 40px 88px}.avatar-ring{width:120px;height:120px}.link-icon{width:52px;height:52px;border-radius:16px}}
+@media(min-width:1200px){.wrapper{max-width:740px;padding:0 40px 88px}.avatar-ring{width:150px;height:150px}.link-icon{width:52px;height:52px;border-radius:16px}}
 </style>
 </head>
 <body>
@@ -261,32 +242,6 @@ body{padding-top:32px}
     <a href="buy.html" class="buy-link"><svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>Buy Now</a>
   </div>
 
-  <!-- Contact Form -->
-  <div id="contact-form" class="section-label">Get In Touch</div>
-  <div class="contact-form-wrap">
-    <form class="contact-form" action="https://formsubmit.co/sampathlox@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New collab inquiry from samxeditz.56">
-      <input type="hidden" name="_captcha" value="false">
-      <div class="form-row">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-      </div>
-      <div class="form-row">
-        <select name="service" required>
-          <option value="" disabled selected>Select Service</option>
-          <option value="reels">Reels &amp; Shorts</option>
-          <option value="transitions">Transition Edits</option>
-          <option value="colorgrade">Color Grading</option>
-          <option value="fullcontent">Full Content Pipeline</option>
-          <option value="other">Other</option>
-        </select>
-        <input type="text" name="budget" placeholder="Budget (₹)">
-      </div>
-      <textarea name="message" placeholder="Tell me about your project..." rows="3" required></textarea>
-      <button type="submit" class="form-submit">Send Message <span>&#8594;</span></button>
-    </form>
-  </div>
-
   <!-- Portfolio -->
   <div id="portfolio" class="section-label">Portfolio</div>
   <div class="portfolio-grid">
@@ -307,13 +262,12 @@ body{padding-top:32px}
     <div class="service-card"><span class="service-icon">📱</span><div class="service-title">Content Creator</div><div class="service-desc">Full content pipeline — ideation to final export</div></div>
   </div>
 
-  <!-- Trust -->
-  <div class="section-label">Why Work With Me</div>
-  <div class="trust-bar">
-    <div class="trust-item"><span class="trust-num">50+</span><span class="trust-label">Projects Done</span></div>
-    <div class="trust-item"><span class="trust-num">₹0</span><span class="trust-label">Starting Price</span></div>
-    <div class="trust-item"><span class="trust-num">24h</span><span class="trust-label">Delivery</span></div>
-    <div class="trust-item"><span class="trust-num">100%</span><span class="trust-label">Satisfaction</span></div>
+  <!-- Buy -->
+  <div id="pricing" class="section-label">Buy This Website</div>
+  <div class="buy-section">
+    <div class="buy-heading">Get This Website Template</div>
+    <div class="buy-sub">Glassmorphism UI &bull; Neon effects &bull; Portfolio &bull; Fully responsive &bull; All assets included</div>
+    <a href="buy.html" class="buy-link"><svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>Buy Now</a>
   </div>
 
   <!-- Footer -->
