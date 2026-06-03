@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>samxeditz.56 | Video Editor</title>
 <meta name="description" content="Professional video editor — Instagram Reels, YouTube Shorts, CapCut transitions & viral edits. DM for collabs.">
+<meta property="og:image" content="assets/samxeditz.jpg">
+<meta property="og:title" content="samxeditz.56 | Video Editor">
+<meta property="og:description" content="Professional video editor — Reels, Transitions & Viral Edits. DM for collabs.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="assets/samxeditz.jpg">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23000'/><text x='50' y='68' text-anchor='middle' fill='white' font-size='48' font-weight='900' font-family='Inter,sans-serif'>S</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,6 +108,67 @@
   ::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:10px}
   ::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.25)}
   html{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.15) transparent}
+
+  /* ===== TYPING ANIMATION ===== */
+  .tagline .typed-text{border-right:2px solid var(--text);padding-right:4px;animation:blink .7s step-end infinite}
+  @keyframes blink{50%{border-color:transparent}}
+
+  /* ===== READING PROGRESS ===== */
+  .progress-bar{
+    position:fixed;top:62px;left:0;height:2px;z-index:110;
+    background:linear-gradient(90deg,rgba(255,255,255,0.6),rgba(255,255,255,0.2));
+    width:0%;transition:width 0.1s linear;
+    box-shadow:0 0 10px rgba(255,255,255,0.3),0 0 20px rgba(255,255,255,0.1);
+  }
+  @media(max-width:480px){.progress-bar{top:52px}}
+
+  /* ===== BACK TO TOP ===== */
+  .back-top{
+    position:fixed;bottom:30px;right:30px;z-index:90;
+    width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:var(--glass);border:1px solid var(--gb);color:var(--text);
+    cursor:pointer;opacity:0;visibility:hidden;transform:translateY(20px);
+    transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
+    box-shadow:0 0 15px rgba(255,255,255,0.06);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  }
+  .back-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+  .back-top:hover{background:var(--glass2);border-color:var(--gb2);transform:translateY(-3px);box-shadow:0 0 25px rgba(255,255,255,0.12)}
+  .back-top svg{width:20px;height:20px;fill:var(--text)}
+  @media(max-width:480px){.back-top{bottom:20px;right:20px;width:42px;height:42px}}
+
+  /* ===== STARFIELD ===== */
+  .starfield{
+    position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  }
+  .star{
+    position:absolute;border-radius:50%;background:#fff;
+    animation:starTwinkle var(--dur) ease-in-out infinite;
+    opacity:var(--op);
+  }
+  @keyframes starTwinkle{0%,100%{opacity:var(--op)}50%{opacity:0.1}}
+
+  /* ===== TOAST ===== */
+  .toast{
+    position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);
+    z-index:200;padding:14px 28px;border-radius:14px;
+    background:var(--glass2);border:1px solid var(--gb2);
+    color:var(--text);font-size:13px;font-weight:600;
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    box-shadow:0 0 20px rgba(255,255,255,0.06);
+    transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    display:flex;align-items:center;gap:8px;white-space:nowrap;
+  }
+  .toast.show{transform:translateX(-50%) translateY(0)}
+  .toast svg{width:18px;height:18px;fill:#4ade80}
+
+  /* ===== SKELETON LOADING ===== */
+  .skeleton{
+    background:linear-gradient(90deg,rgba(255,255,255,0.04) 25%,rgba(255,255,255,0.08) 50%,rgba(255,255,255,0.04) 75%);
+    background-size:200% 100%;animation:shimmer 1.5s infinite;
+    border-radius:inherit;
+  }
+  @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
   /* ===== CURSOR GLOW ===== */
   .cursor-glow{
@@ -347,6 +414,9 @@
   }
   .link-arrow svg{width:16px;height:16px;fill:currentColor}
   .link-card:hover .link-arrow{color:var(--text);background:rgba(255,255,255,0.08);border-color:var(--gb);transform:translateX(5px)}
+  .link-arrow.copy-email:hover{background:rgba(74,222,128,0.15) !important;border-color:rgba(74,222,128,0.3) !important}
+  .link-arrow.copy-email svg{fill:var(--muted)}
+  .link-arrow.copy-email:hover svg{fill:#4ade80 !important}
 
   /* ===== ADDRESS ===== */
   .address-card{
@@ -503,11 +573,28 @@
 </head>
 <body>
 
+<!-- Starfield -->
+<div class="starfield" id="starfield" aria-hidden="true"></div>
+
 <!-- Cursor glow -->
-<div class="cursor-glow" id="cursorGlow"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<!-- Reading progress -->
+<div class="progress-bar" id="progressBar" role="progressbar" aria-label="Reading progress"></div>
 
 <!-- Page transition overlay -->
-<div class="page-transition" id="pageTransition"></div>
+<div class="page-transition" id="pageTransition" aria-hidden="true"></div>
+
+<!-- Back to top -->
+<button class="back-top" id="backTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+</button>
+
+<!-- Toast notification -->
+<div class="toast" id="toast" role="alert" aria-live="polite">
+  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+  <span id="toastMsg">Copied!</span>
+</div>
 
 <!-- Navbar -->
 <nav class="navbar">
@@ -539,7 +626,9 @@
       <img src="assets/samxeditz.jpg" alt="samxeditz.56">
     </div>
     <div class="username">@samxeditz.56<span class="verified-badge"><svg viewBox="0 0 24 24"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"/></svg></span></div>
-    <div class="tagline">Video Editing <span class="pipe"></span> Reels <span class="pipe"></span> <span class="brand">CapCut</span></div>
+    <div class="tagline">
+      <span class="typed-text" id="typedText"></span><span class="pipe"></span> <span class="brand">samxeditz.56</span>
+    </div>
     <div class="status"><div class="status-dot"></div>Open for Collabs</div>
     <a href="https://www.instagram.com/samxeditz.56" target="_blank" class="follow-btn">
       <span class="follow-icon"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span>
@@ -578,10 +667,12 @@
       <div class="link-text"><div class="link-label">WhatsApp</div><div class="link-sub">Collabs & inquiries</div></div>
       <div class="link-arrow"><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg></div>
     </a>
-    <a href="mailto:sampathlox@gmail.com?subject=Collab%20Inquiry" class="link-card">
+    <a href="mailto:sampathlox@gmail.com?subject=Collab%20Inquiry" class="link-card" id="emailLink">
       <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
       <div class="link-text"><div class="link-label">Email</div><div class="link-sub">sampathlox@gmail.com</div></div>
-      <div class="link-arrow"><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg></div>
+      <div class="link-arrow copy-email" onclick="copyEmail(event)" aria-label="Copy email" title="Copy email">
+        <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+      </div>
     </a>
   </div>
 
@@ -728,6 +819,73 @@
       }
     });
   });
+
+  // Copy email
+  function copyEmail(e){
+    e.preventDefault();e.stopPropagation();
+    navigator.clipboard.writeText('sampathlox@gmail.com').then(function(){
+      showToast('Email copied!');
+    });
+  }
+
+  // Toast notification
+  var toastTimer;
+  function showToast(msg){
+    var t=document.getElementById('toast');var m=document.getElementById('toastMsg');
+    m.textContent=msg;t.classList.add('show');
+    clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove('show')},2500);
+  }
+
+  // Typing animation
+  var typedWords=['Video Editor','Reels Creator','Transition Master','CapCut Pro','Content Creator'];
+  var wordIdx=0,charIdx=0,deleting=false;
+  var typedEl=document.getElementById('typedText');
+  function typeEffect(){
+    if(!typedEl)return;
+    var current=typedWords[wordIdx];
+    if(!deleting){
+      typedEl.textContent=current.substring(0,charIdx+1);
+      charIdx++;
+      if(charIdx===current.length){deleting=true;setTimeout(typeEffect,2000);return}
+    } else {
+      typedEl.textContent=current.substring(0,charIdx-1);
+      charIdx--;
+      if(charIdx===0){deleting=false;wordIdx=(wordIdx+1)%typedWords.length}
+    }
+    setTimeout(typeEffect,deleting?50:120);
+  }
+  setTimeout(typeEffect,1500);
+
+  // Reading progress bar
+  window.addEventListener('scroll',function(){
+    var bar=document.getElementById('progressBar');
+    if(!bar)return;
+    var scrollTop=window.scrollY;
+    var docHeight=document.documentElement.scrollHeight-window.innerHeight;
+    var progress=(scrollTop/docHeight)*100;
+    bar.style.width=progress+'%';
+    bar.setAttribute('aria-valuenow',Math.round(progress));
+  });
+
+  // Back to top
+  var backTop=document.getElementById('backTop');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>400)backTop.classList.add('visible');
+    else backTop.classList.remove('visible');
+  });
+  backTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+
+  // Starfield particles
+  var starfield=document.getElementById('starfield');
+  if(starfield){
+    for(var i=0;i<80;i++){
+      var star=document.createElement('div');
+      star.className='star';
+      var size=Math.random()*2+1;
+      star.style.cssText='width:'+size+'px;height:'+size+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--dur:'+(Math.random()*3+2)+'s;--op:'+(Math.random()*0.5+0.2)+';animation-delay:'+Math.random()*3+'s';
+      starfield.appendChild(star);
+    }
+  }
 
   // Scroll-based nav highlighting
   const sections=['links','contact','portfolio','services'];
