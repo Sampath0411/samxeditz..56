@@ -32,7 +32,7 @@ html{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.15) transparent}
 .star{position:absolute;border-radius:50%;background:#fff;animation:twinkle var(--dur,3s) ease-in-out infinite alternate;opacity:var(--op,0.3)}
 @keyframes twinkle{0%{opacity:var(--op,0.3)}100%{opacity:calc(var(--op,0.3)*2.5)}}
 .progress-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#f9ce34,#ee2a7b,#6228d7);z-index:101;width:0;transition:width 0.1s}
-.back-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-center:center;cursor:pointer;opacity:0;visibility:hidden;transition:all 0.3s;z-index:99;color:#fff}.back-top.visible{opacity:1;visibility:visible}.back-top:hover{background:rgba(255,255,255,0.15);transform:translateY(-2px)}.back-top svg{width:18px;height:18px;fill:#fff}
+.back-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transition:all 0.3s;z-index:99;color:#fff}.back-top.visible{opacity:1;visibility:visible}.back-top:hover{background:rgba(255,255,255,0.15);transform:translateY(-2px)}.back-top svg{width:18px;height:18px;fill:#fff}
 
 /* NAVBAR */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:6px 24px;background:rgba(0,0,0,0.6);backdrop-filter:blur(20px);border-bottom:1px solid var(--gb)}
@@ -225,7 +225,7 @@ body{padding-top:32px}
     <div class="username">@samxeditz.56<span class="verified-badge"><svg viewBox="0 0 24 24"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"/></svg></span></div>
     <div class="tagline"><span class="typed-text" id="typedText"></span><span class="pipe"></span><span class="brand">samxeditz.56</span></div>
     <div class="status"><div class="status-dot"></div>Open for Collabs</div>
-    <a href="https://www.instagram.com/samxeditz.56" target="_blank" class="follow-btn"><span class="follow-icon"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></span><span class="follow-text">Follow on Instagram</span><span class="follow-arrow">&rarr;</span></a>
+    <a href="https://www.instagram.com/samxeditz.56" target="_blank" class="follow-btn"><span class="follow-icon"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></span><span class="follow-text">Follow on Instagram</span><span class="follow-arrow">&#8594;</span></a>
   </div>
 
   <!-- Stats -->
@@ -283,7 +283,7 @@ body{padding-top:32px}
         <input type="text" name="budget" placeholder="Budget (₹)">
       </div>
       <textarea name="message" placeholder="Tell me about your project..." rows="3" required></textarea>
-      <button type="submit" class="form-submit">Send Message <span>&rarr;</span></button>
+      <button type="submit" class="form-submit">Send Message <span>&#8594;</span></button>
     </form>
   </div>
 
@@ -322,23 +322,117 @@ body{padding-top:32px}
 </div>
 
 <script>
-window.addEventListener('load',function(){setTimeout(function(){document.getElementById('loader').classList.add('hidden');document.querySelector('.wrapper').classList.add('visible')},600)});
+window.addEventListener('load',function(){
+  setTimeout(function(){
+    document.getElementById('loader').classList.add('hidden');
+    document.querySelector('.wrapper').classList.add('visible');
+  },600);
+});
 document.getElementById('year').textContent=new Date().getFullYear();
-function animateCounters(){var c=document.querySelectorAll('.stat-number[data-target]');var d=1800,s=performance.now();function u(t){var el=t-s,p=Math.min(el/d,1),ea=(x=>x===1?1:1-Math.pow(2,-10*x))(p);c.forEach(function(x){x.textContent=Math.round(parseInt(x.getAttribute('data-target'))*ea)+(x.getAttribute('data-suffix')||'')});if(p<1)requestAnimationFrame(u)}requestAnimationFrame(u)}
+function animateCounters(){
+  var c=document.querySelectorAll('.stat-number[data-target]');
+  var d=1800,s=performance.now();
+  function u(t){
+    var el=t-s,p=Math.min(el/d,1),ea=(x=>x===1?1:1-Math.pow(2,-10*x))(p);
+    c.forEach(function(x){
+      x.textContent=Math.round(parseInt(x.getAttribute('data-target'))*ea)+(x.getAttribute('data-suffix')||'');
+    });
+    if(p<1)requestAnimationFrame(u);
+  }
+  requestAnimationFrame(u);
+}
 window.addEventListener('load',function(){setTimeout(animateCounters,1000)});
 var DEV_URL='https://sampath-portfolio0411.vercel.app/';
-function setMode(m){var e=document.getElementById('editzMode'),d=document.getElementById('devMode');if(m==='editz'){e.classList.add('active');d.classList.remove('active');localStorage.setItem('siteMode','editz')}else{e.classList.remove('active');d.classList.add('active');localStorage.setItem('siteMode','dev');window.location.href=DEV_URL}}
-(function(){var s=localStorage.getItem('siteMode');if(s==='dev'){document.getElementById('editzMode').classList.remove('active');document.getElementById('devMode').classList.add('active')}else{document.getElementById('editzMode').classList.add('active');document.getElementById('devMode').classList.remove('active')}})();
-document.addEventListener('mousemove',function(e){var g=document.getElementById('cursorGlow');if(g){g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'}});
-function copyEmail(e){e.preventDefault();e.stopPropagation();navigator.clipboard.writeText('sampathlox@gmail.com').then(function(){var t=document.getElementById('toast'),m=document.getElementById('toastMsg');m.textContent='Email copied!';t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(function(){t.classList.remove('show')},2500)})}
-var tw=['Video Editor','Reels Creator','Transition Master','CapCut Pro','Content Creator'];var wi=0,ci=0,del=false;var te=document.getElementById('typedText');
-function type(){if(!te)return;var c=tw[wi];if(!del){te.textContent=c.substring(0,ci+1);ci++;if(ci===c.length){del=true;setTimeout(type,2000);return}}else{te.textContent=c.substring(0,ci-1);ci--;if(ci===0){del=false;wi=(wi+1)%tw.length}}setTimeout(type,del?50:120)}setTimeout(type,1200);
-window.addEventListener('scroll',function(){var b=document.getElementById('progressBar');if(b)b.style.width=(window.scrollY/(document.documentElement.scrollHeight-innerHeight))*100+'%'});
-var bt=document.getElementById('backTop');if(bt){window.addEventListener('scroll',function(){if(window.scrollY>400)bt.classList.add('visible');else bt.classList.remove('visible')});bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})}
-var sf=document.getElementById('starfield');if(sf){for(var i=0;i<60;i++){var s=document.createElement('div');s.className='star';var sz=Math.random()*2+1;s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--dur:'+(Math.random()*3+2)+'s;--op:'+(Math.random()*0.5+0.2)+';animation-delay:'+Math.random()*3+'s';sf.appendChild(s)}}
-var secs=['links','contact','pricing','portfolio','services'];var nl={};secs.forEach(function(s){nl[s]=document.querySelector('.nav-link[href="#'+s+'"]')});
-window.addEventListener('scroll',function(){var cur='links';secs.forEach(function(s){var el=document.getElementById(s);if(el&&el.getBoundingClientRect().top<=150)cur=s});secs.forEach(function(s){if(nl[s]){if(s===cur)nl[s].classList.add('active');else nl[s].classList.remove('active')}})});
-(function(){var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');if(h&&m){h.addEventListener('click',function(){h.classList.toggle('active');m.classList.toggle('open')});m.querySelectorAll('.mobile-link').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('active');m.classList.remove('open'})})}})();
+function setMode(m){
+  var e=document.getElementById('editzMode'),d=document.getElementById('devMode');
+  if(m==='editz'){e.classList.add('active');d.classList.remove('active');localStorage.setItem('siteMode','editz')}
+  else{e.classList.remove('active');d.classList.add('active');localStorage.setItem('siteMode','dev');window.location.href=DEV_URL}
+}
+(function(){
+  var s=localStorage.getItem('siteMode');
+  if(s==='dev'){document.getElementById('editzMode').classList.remove('active');document.getElementById('devMode').classList.add('active')}
+  else{document.getElementById('editzMode').classList.add('active');document.getElementById('devMode').classList.remove('active')}
+})();
+function copyEmail(e){
+  e.preventDefault();e.stopPropagation();
+  navigator.clipboard.writeText('sampathlox@gmail.com').then(function(){
+    var t=document.getElementById('toast'),m=document.getElementById('toastMsg');
+    m.textContent='Email copied!';
+    t.classList.add('show');
+    clearTimeout(window._tt);
+    window._tt=setTimeout(function(){t.classList.remove('show')},2500);
+  });
+}
+var tw=['Video Editor','Reels Creator','Transition Master','CapCut Pro','Content Creator'];
+var wi=0,ci=0,del=false;
+var te=document.getElementById('typedText');
+function type(){
+  if(!te)return;
+  var c=tw[wi];
+  if(!del){
+    te.textContent=c.substring(0,ci+1);ci++;
+    if(ci===c.length){del=true;setTimeout(type,2000);return;}
+  }else{
+    te.textContent=c.substring(0,ci-1);ci--;
+    if(ci===0){del=false;wi=(wi+1)%tw.length;}
+  }
+  setTimeout(type,del?50:120);
+}
+setTimeout(type,1200);
+window.addEventListener('scroll',function(){
+  var b=document.getElementById('progressBar');
+  if(b)b.style.width=(window.scrollY/(document.documentElement.scrollHeight-innerHeight))*100+'%';
+});
+var bt=document.getElementById('backTop');
+if(bt){
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>400)bt.classList.add('visible');
+    else bt.classList.remove('visible');
+  });
+  bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+}
+var sf=document.getElementById('starfield');
+if(sf){
+  for(var i=0;i<60;i++){
+    var s=document.createElement('div');
+    s.className='star';
+    var sz=Math.random()*2+1;
+    s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--dur:'+(Math.random()*3+2)+'s;--op:'+(Math.random()*0.5+0.2)+';animation-delay:'+Math.random()*3+'s';
+    sf.appendChild(s);
+  }
+}
+var secs=['links','contact','pricing','portfolio','services'];
+var nl={};
+secs.forEach(function(s){nl[s]=document.querySelector('.nav-link[href="#'+s+'"]')});
+window.addEventListener('scroll',function(){
+  var cur='links';
+  secs.forEach(function(s){
+    var el=document.getElementById(s);
+    if(el&&el.getBoundingClientRect().top<=150)cur=s;
+  });
+  secs.forEach(function(s){
+    if(nl[s]){
+      if(s===cur)nl[s].classList.add('active');
+      else nl[s].classList.remove('active');
+    }
+  });
+});
+(function(){
+  var h=document.getElementById('hamburger');
+  var m=document.getElementById('mobileMenu');
+  if(h&&m){
+    h.addEventListener('click',function(){
+      h.classList.toggle('active');
+      m.classList.toggle('open');
+    });
+    m.querySelectorAll('.mobile-link').forEach(function(a){
+      a.addEventListener('click',function(){
+        h.classList.remove('active');
+        m.classList.remove('open');
+      });
+    });
+  }
+})();
 </script>
 </body>
 </html>
