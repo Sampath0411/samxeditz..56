@@ -3,417 +3,383 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>samxeditz.56 | Video Editor — Reels, Transitions & Viral Edits</title>
-<meta name="description" content="Professional video editor specializing in Instagram Reels, YouTube Shorts, CapCut transitions & viral edits. DM for collabs.">
-<meta property="og:title" content="samxeditz.56 | Video Editor">
-<meta property="og:description" content="Reels · Transitions · Viral Edits. DM for collabs.">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
+<title>samxeditz.56 | Video Editor</title>
+<meta name="description" content="Professional video editor — Instagram Reels, YouTube Shorts, CapCut transitions & viral edits. DM for collabs.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23000'/><text x='50' y='68' text-anchor='middle' fill='white' font-size='48' font-weight='900' font-family='Inter,sans-serif'>S</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-  /* ===== LOADING ===== */
-  #loader {
-    position: fixed; inset: 0; background: #000; z-index: 9999;
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 24px;
-    transition: opacity 0.8s ease, visibility 0.8s ease;
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --glass:rgba(255,255,255,0.04);--glass2:rgba(255,255,255,0.08);
+    --gb:rgba(255,255,255,0.08);--gb2:rgba(255,255,255,0.18);
+    --text:#fff;--muted:#888;--dim:#555;
   }
-  #loader.hidden { opacity: 0; visibility: hidden; }
-  .loader-letter {
-    font-family: 'Inter', sans-serif; font-size: 44px; font-weight: 900;
-    color: #fff; letter-spacing: 12px; text-transform: uppercase;
-    text-shadow: 0 0 30px rgba(255,255,255,0.6), 0 0 60px rgba(255,255,255,0.3), 0 0 100px rgba(255,255,255,0.1);
-    animation: loadPulse 1.5s ease-in-out infinite;
-  }
-  .loader-bar { width: 100px; height: 2px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
-  .loader-bar::after {
-    content: ''; display: block; width: 30px; height: 2px; background: #fff; border-radius: 2px;
-    box-shadow: 0 0 12px #fff, 0 0 30px rgba(255,255,255,0.6), 0 0 60px rgba(255,255,255,0.3);
-    animation: loadSlide 1.2s ease-in-out infinite;
-  }
-  @keyframes loadPulse {
-    0%, 100% { opacity: 0.3; text-shadow: 0 0 15px rgba(255,255,255,0.3), 0 0 40px rgba(255,255,255,0.1); }
-    50% { opacity: 1; text-shadow: 0 0 40px rgba(255,255,255,0.7), 0 0 80px rgba(255,255,255,0.4), 0 0 120px rgba(255,255,255,0.15); }
-  }
-  @keyframes loadSlide { 0% { transform: translateX(-30px); } 100% { transform: translateX(130px); } }
 
-  /* ===== VARIABLES ===== */
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --bg: #000000;
-    --glass: rgba(255,255,255,0.03);
-    --glass2: rgba(255,255,255,0.06);
-    --glass-border: rgba(255,255,255,0.08);
-    --glass-border2: rgba(255,255,255,0.15);
-    --neon-sm: 0 0 12px rgba(255,255,255,0.06);
-    --neon-md: 0 0 20px rgba(255,255,255,0.1), 0 0 50px rgba(255,255,255,0.04);
-    --neon-lg: 0 0 30px rgba(255,255,255,0.15), 0 0 80px rgba(255,255,255,0.06);
-    --neon-text: 0 0 10px rgba(255,255,255,0.3), 0 0 30px rgba(255,255,255,0.1);
-    --text: #ffffff;
-    --muted: #888888;
-    --dim: #444444;
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    background:#000;color:var(--text);min-height:100vh;
+    display:flex;justify-content:center;overflow-x:hidden;
   }
-  html { scroll-behavior: smooth; }
 
-  /* ===== BACKGROUND ===== */
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--bg); color: var(--text); min-height: 100vh;
-    display: flex; justify-content: center; overflow-x: hidden;
-  }
-  body::before {
-    content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  /* Background orbs */
+  body::before{
+    content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
     background:
-      radial-gradient(ellipse 600px 500px at 15% 25%, rgba(255,255,255,0.03) 0%, transparent 70%),
-      radial-gradient(ellipse 500px 600px at 85% 75%, rgba(255,255,255,0.02) 0%, transparent 70%),
-      radial-gradient(ellipse 400px 400px at 50% 50%, rgba(255,255,255,0.01) 0%, transparent 60%);
-    animation: bgFloat 18s ease-in-out infinite alternate;
+      radial-gradient(ellipse 600px 500px at 15% 25%,rgba(255,255,255,0.04) 0%,transparent 70%),
+      radial-gradient(ellipse 500px 600px at 85% 75%,rgba(255,255,255,0.03) 0%,transparent 70%);
+    animation:bgFloat 15s ease-in-out infinite alternate;
   }
-  @keyframes bgFloat {
-    0% { transform: scale(1); opacity: 0.7; }
-    50% { opacity: 1; }
-    100% { transform: scale(1.06); opacity: 0.8; }
+  @keyframes bgFloat{0%{transform:scale(1);opacity:0.6}100%{transform:scale(1.06);opacity:1}}
+
+  body::after{
+    content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.6' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.01'/%3E%3C/svg%3E");
   }
-  body::after {
-    content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.6' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.01'/%3E%3C/svg%3E");
+
+  /* ===== LOADER ===== */
+  #loader{
+    position:fixed;inset:0;background:#000;z-index:9999;
+    display:flex;align-items:center;justify-content:center;
+    flex-direction:column;gap:24px;
+    transition:opacity 0.8s ease,visibility 0.8s ease;
   }
+  #loader.hidden{opacity:0;visibility:hidden}
+  .loader-letter{
+    font-size:44px;font-weight:900;color:#fff;letter-spacing:12px;text-transform:uppercase;
+    text-shadow:0 0 30px rgba(255,255,255,0.6),0 0 60px rgba(255,255,255,0.3);
+    animation:lp 1.5s ease-in-out infinite;
+  }
+  .loader-bar{width:100px;height:2px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden}
+  .loader-bar::after{
+    content:'';display:block;width:30px;height:2px;background:#fff;border-radius:2px;
+    box-shadow:0 0 12px #fff,0 0 30px rgba(255,255,255,0.6);
+    animation:ls 1.2s ease-in-out infinite;
+  }
+  @keyframes lp{
+    0%,100%{opacity:0.3;text-shadow:0 0 15px rgba(255,255,255,0.3)}
+    50%{opacity:1;text-shadow:0 0 40px rgba(255,255,255,0.7),0 0 80px rgba(255,255,255,0.3)}
+  }
+  @keyframes ls{0%{transform:translateX(-30px)}100%{transform:translateX(130px)}}
 
   /* ===== WRAPPER ===== */
-  .wrapper {
-    position: relative; z-index: 1; width: 100%; max-width: 680px;
-    padding: 64px 32px 72px; display: flex; flex-direction: column;
-    align-items: stretch; min-height: 100vh;
-    opacity: 0; transform: translateY(12px);
-    transition: opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s;
+  .wrapper{
+    position:relative;z-index:1;width:100%;max-width:680px;
+    padding:64px 32px 72px;display:flex;flex-direction:column;
+    align-items:stretch;min-height:100vh;
+    opacity:0;transform:translateY(12px);
+    transition:opacity 0.7s ease 0.4s,transform 0.7s ease 0.4s;
   }
-  .wrapper.visible { opacity: 1; transform: translateY(0); }
+  .wrapper.visible{opacity:1;transform:translateY(0)}
 
-  /* ===== GLASS CARD BASE ===== */
-  .glass {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    box-shadow: var(--neon-sm);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  /* ===== GLASS BASE ===== */
+  .gc{
+    background:var(--glass);border:1px solid var(--gb);border-radius:20px;
+    box-shadow:0 0 12px rgba(255,255,255,0.04),0 0 30px rgba(255,255,255,0.02);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
   }
-  .glass:hover {
-    background: var(--glass2);
-    border-color: var(--glass-border2);
-    box-shadow: var(--neon-md);
+  .gc:hover{
+    background:var(--glass2);border-color:var(--gb2);
+    box-shadow:0 0 25px rgba(255,255,255,0.08),0 0 50px rgba(255,255,255,0.04);
   }
 
   /* ===== PROFILE ===== */
-  .profile { display: flex; flex-direction: column; align-items: center; margin-bottom: 56px; }
-  .avatar-ring {
-    width: 110px; height: 110px; border-radius: 50%; padding: 3px; margin-bottom: 22px;
-    position: relative; background: var(--glass-border);
-    box-shadow: 0 0 40px rgba(255,255,255,0.08), 0 0 80px rgba(255,255,255,0.03), inset 0 0 20px rgba(255,255,255,0.02);
+  .profile{display:flex;flex-direction:column;align-items:center;margin-bottom:56px}
+  .avatar-ring{
+    width:110px;height:110px;border-radius:50%;padding:3px;margin-bottom:22px;
+    position:relative;background:var(--gb);
+    box-shadow:0 0 40px rgba(255,255,255,0.08),0 0 80px rgba(255,255,255,0.03);
   }
-  .avatar-ring::before {
-    content: ''; position: absolute; inset: -3px; border-radius: 50%; z-index: -1;
-    background: conic-gradient(from 0deg, rgba(255,255,255,0.2), transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%, rgba(255,255,255,0.2));
-    animation: spin 10s linear infinite;
+  .avatar-ring::before{
+    content:'';position:absolute;inset:-3px;border-radius:50%;z-index:-1;
+    background:conic-gradient(from 0deg,rgba(255,255,255,0.2),transparent 30%,rgba(255,255,255,0.1) 50%,transparent 70%,rgba(255,255,255,0.2));
+    animation:spin 10s linear infinite;
   }
-  .avatar-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; border: 3px solid #000; }
-  .username {
-    font-size: clamp(28px, 5vw, 40px); font-weight: 900; letter-spacing: -1.5px;
-    margin-bottom: 10px; text-transform: uppercase;
-    text-shadow: 0 0 20px rgba(255,255,255,0.2), 0 0 50px rgba(255,255,255,0.05);
-    display: flex; align-items: center; gap: 10px;
+  .avatar-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid #000}
+  .username{
+    font-size:clamp(28px,5vw,40px);font-weight:900;letter-spacing:-1.5px;
+    margin-bottom:10px;text-transform:uppercase;
+    text-shadow:0 0 20px rgba(255,255,255,0.2);
+    display:flex;align-items:center;gap:10px;
   }
-  .verified-badge {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 24px; height: 24px; background: #1da1f2; border-radius: 50%; flex-shrink: 0;
-    box-shadow: 0 0 12px rgba(29,161,242,0.5), 0 0 30px rgba(29,161,242,0.2);
+  .verified-badge{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:24px;height:24px;background:#1da1f2;border-radius:50%;flex-shrink:0;
+    box-shadow:0 0 12px rgba(29,161,242,0.5);
   }
-  .verified-badge svg { width: 13px; height: 13px; fill: #fff; }
-  .tagline {
-    font-size: clamp(10px, 1.8vw, 12px); color: var(--muted); font-weight: 500;
-    text-transform: uppercase; letter-spacing: 4px;
-    display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center;
+  .verified-badge svg{width:13px;height:13px;fill:#fff}
+  .tagline{
+    font-size:clamp(10px,1.8vw,12px);color:var(--muted);font-weight:500;
+    text-transform:uppercase;letter-spacing:4px;
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;
   }
-  .tagline .pipe { width: 1px; height: 12px; background: var(--dim); }
-  .tagline .brand { color: var(--text); font-weight: 700; }
-  .status {
-    display: flex; align-items: center; gap: 8px; margin-top: 18px;
-    font-size: 9px; font-weight: 700; color: var(--text);
-    background: var(--glass); border: 1px solid var(--glass-border);
-    padding: 10px 26px; border-radius: 100px; letter-spacing: 5px;
-    text-transform: uppercase; transition: all 0.3s;
-    box-shadow: var(neon-sm); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  .tagline .pipe{width:1px;height:12px;background:var(--dim)}
+  .tagline .brand{color:var(--text);font-weight:700}
+  .status{
+    display:flex;align-items:center;gap:8px;margin-top:18px;
+    font-size:9px;font-weight:700;color:var(--text);
+    background:var(--glass);border:1px solid var(--gb);
+    padding:10px 26px;border-radius:100px;letter-spacing:5px;
+    text-transform:uppercase;transition:all 0.3s;
+    box-shadow:0 0 12px rgba(255,255,255,0.04);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   }
-  .status:hover { border-color: var(--glass-border2); box-shadow: var(--neon-md); text-shadow: var(--neon-text); }
-  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text); box-shadow: 0 0 8px rgba(255,255,255,0.4); animation: pulse-dot 2s ease-in-out infinite; }
+  .status:hover{border-color:var(--gb2);box-shadow:0 0 20px rgba(255,255,255,0.08)}
+  .status-dot{width:7px;height:7px;border-radius:50%;background:var(--text);box-shadow:0 0 8px rgba(255,255,255,0.4);animation:pulse-dot 2s ease-in-out infinite}
 
   /* ===== FOLLOW BUTTON ===== */
-  .follow-btn {
-    display: flex; align-items: center; gap: 10px; margin-top: 20px;
-    padding: 12px 28px; border-radius: 100px; text-decoration: none;
-    color: #fff; font-size: 11px; font-weight: 800; text-transform: uppercase;
-    letter-spacing: 2px; font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
-    border: none; cursor: pointer; transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 0 20px rgba(232, 42, 123, 0.3), 0 0 40px rgba(98, 40, 215, 0.15);
-    animation: followPulse 2.5s ease-in-out infinite;
-    position: relative; overflow: hidden;
+  .follow-btn{
+    display:inline-flex !important;align-items:center;gap:10px;margin-top:22px;
+    padding:14px 32px;border-radius:100px;text-decoration:none !important;
+    color:#fff !important;font-size:12px;font-weight:800;text-transform:uppercase;
+    letter-spacing:3px;font-family:'Inter',sans-serif;
+    background:linear-gradient(135deg,#f9ce34 0%,#ee2a7b 50%,#6228d7 100%) !important;
+    border:none;cursor:pointer;
+    transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
+    box-shadow:0 0 25px rgba(232,42,123,0.35),0 0 50px rgba(98,40,215,0.15);
+    animation:fp 2.5s ease-in-out infinite;
+    position:relative;overflow:hidden;
   }
-  .follow-btn::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent 60%);
-    pointer-events: none;
+  .follow-btn::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent 60%);
+    pointer-events:none;
   }
-  .follow-btn:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 0 30px rgba(232, 42, 123, 0.5), 0 0 60px rgba(98, 40, 215, 0.25), 0 8px 30px rgba(0,0,0,0.3);
-    animation: none;
+  .follow-btn:hover{
+    transform:translateY(-3px) scale(1.04) !important;
+    box-shadow:0 0 35px rgba(232,42,123,0.5),0 0 70px rgba(98,40,215,0.25),0 8px 30px rgba(0,0,0,0.4) !important;
+    animation:none !important;
   }
-  .follow-btn:active { transform: scale(0.97); }
-  .follow-icon {
-    display: flex; align-items: center; justify-content: center;
-    width: 22px; height: 22px; flex-shrink: 0;
-  }
-  .follow-icon svg { width: 22px; height: 22px; fill: #fff; }
-  .follow-text { flex: 1; text-align: center; }
-  .follow-arrow {
-    font-size: 16px; font-weight: 400; opacity: 0.8;
-    transition: transform 0.3s;
-  }
-  .follow-btn:hover .follow-arrow { transform: translateX(4px); opacity: 1; }
-  @keyframes followPulse {
-    0%, 100% { box-shadow: 0 0 20px rgba(232, 42, 123, 0.3), 0 0 40px rgba(98, 40, 215, 0.15); }
-    50% { box-shadow: 0 0 30px rgba(232, 42, 123, 0.5), 0 0 60px rgba(98, 40, 215, 0.25); }
+  .follow-btn:active{transform:scale(0.96) !important}
+  .follow-icon{display:flex;align-items:center;justify-content:center;width:22px;height:22px;flex-shrink:0}
+  .follow-icon svg{width:22px;height:22px;fill:#fff}
+  .follow-text{flex:1;text-align:center}
+  .follow-arrow{font-size:18px;font-weight:400;opacity:0.8;transition:transform 0.3s}
+  .follow-btn:hover .follow-arrow{transform:translateX(5px);opacity:1}
+  @keyframes fp{
+    0%,100%{box-shadow:0 0 25px rgba(232,42,123,0.35),0 0 50px rgba(98,40,215,0.15)}
+    50%{box-shadow:0 0 40px rgba(232,42,123,0.55),0 0 80px rgba(98,40,215,0.3)}
   }
 
   /* ===== STATS ===== */
-  .stats {
-    display: flex; align-items: center; justify-content: center;
-    gap: 0; margin-bottom: 48px;
-  }
-  .stat { text-align: center; flex: 1; padding: 18px 0; position: relative; }
-  .stat + .stat { border-left: 1px solid var(--glass-border); }
-  .stat-number { font-size: clamp(20px, 3.5vw, 28px); font-weight: 900; letter-spacing: -0.5px; text-shadow: var(--neon-text); }
-  .stat-label { font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 3px; font-weight: 600; margin-top: 4px; }
+  .stats{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:48px}
+  .stat{text-align:center;flex:1;padding:18px 0;position:relative}
+  .stat+.stat{border-left:1px solid var(--gb)}
+  .stat-number{font-size:clamp(20px,3.5vw,28px);font-weight:900;letter-spacing:-0.5px;text-shadow:0 0 10px rgba(255,255,255,0.3)}
+  .stat-label{font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:3px;font-weight:600;margin-top:4px}
 
   /* ===== SECTION LABELS ===== */
-  .section-label {
-    font-size: 9px; text-transform: uppercase; letter-spacing: 7px; color: var(--dim);
-    margin-bottom: 14px; font-weight: 700; display: flex; align-items: center; gap: 12px;
-    text-shadow: 0 0 10px rgba(255,255,255,0.05);
+  .section-label{
+    font-size:9px;text-transform:uppercase;letter-spacing:7px;color:var(--dim);
+    margin-bottom:14px;font-weight:700;display:flex;align-items:center;gap:12px;
   }
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--glass-border); }
-  .section-label + .section-label { margin-top: 40px; }
+  .section-label::after{content:'';flex:1;height:1px;background:var(--gb)}
+  .section-label+.section-label{margin-top:40px}
 
-  /* ===== PORTFOLIO ===== */
-  .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 0; }
-  .portfolio-item {
-    position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 9/16;
-    background: var(--glass); border: 1px solid var(--glass-border);
-    cursor: pointer; transition: all 0.35s; animation: fadeUp 0.5s ease backwards;
-    box-shadow: var(--neon-sm);
+  /* ===== LINKS ===== */
+  .links{display:flex;flex-direction:column;gap:8px}
+  .link-card{
+    display:flex;align-items:center;gap:14px;padding:16px 18px;
+    background:var(--glass);border:1px solid var(--gb);border-radius:18px;
+    text-decoration:none;color:var(--text);
+    transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
+    cursor:pointer;position:relative;animation:fadeUp 0.5s ease backwards;
+    box-shadow:0 0 12px rgba(255,255,255,0.03);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   }
-  .portfolio-item:nth-child(1) { animation-delay: 0.05s; }
-  .portfolio-item:nth-child(2) { animation-delay: 0.1s; }
-  .portfolio-item:nth-child(3) { animation-delay: 0.15s; }
-  .portfolio-item:nth-child(4) { animation-delay: 0.2s; }
-  .portfolio-item:nth-child(5) { animation-delay: 0.25s; }
-  .portfolio-item:nth-child(6) { animation-delay: 0.3s; }
-  .portfolio-item:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-5px) scale(1.02); box-shadow: var(--neon-lg); }
-  .portfolio-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .portfolio-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%);
-    display: flex; flex-direction: column; justify-content: flex-end; padding: 12px;
-    opacity: 0; transition: opacity 0.3s;
+  .link-card:nth-child(1){animation-delay:.05s}
+  .link-card:nth-child(2){animation-delay:.1s}
+  .link-card:nth-child(3){animation-delay:.15s}
+  .link-card:nth-child(4){animation-delay:.2s}
+  .link-card:nth-child(5){animation-delay:.25s}
+  .link-card:nth-child(6){animation-delay:.3s}
+  .link-card:hover{
+    background:var(--glass2);border-color:var(--gb2);
+    transform:translateY(-3px);
+    box-shadow:0 0 25px rgba(255,255,255,0.1),0 0 50px rgba(255,255,255,0.04);
   }
-  .portfolio-item:hover .portfolio-overlay { opacity: 1; }
-  .portfolio-likes { font-size: 11px; font-weight: 700; display: flex; align-items: center; gap: 5px; }
-  .portfolio-likes svg { width: 14px; height: 14px; fill: var(--text); }
-  .portfolio-play {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 44px; height: 44px; background: rgba(255,255,255,0.1); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    opacity: 0; transition: opacity 0.3s;
-    box-shadow: 0 0 25px rgba(255,255,255,0.1), inset 0 0 15px rgba(255,255,255,0.05);
+  .link-card:active{transform:scale(0.98)}
+  .link-icon{
+    width:50px;height:50px;border-radius:16px;display:flex;align-items:center;
+    justify-content:center;flex-shrink:0;position:relative;z-index:1;
+    background:rgba(255,255,255,0.05);border:1px solid var(--gb);
+    overflow:hidden;transition:all 0.35s;
+    box-shadow:inset 0 0 10px rgba(255,255,255,0.02);
   }
-  .portfolio-item:hover .portfolio-play { opacity: 1; }
-  .portfolio-play svg { width: 18px; height: 18px; fill: #fff; margin-left: 2px; }
-
-  /* ===== LINK CARDS ===== */
-  .links { display: flex; flex-direction: column; gap: 8px; }
-  .link-card {
-    display: flex; align-items: center; gap: 14px; padding: 16px 18px;
-    background: var(--glass); border: 1px solid var(--glass-border); border-radius: 18px;
-    text-decoration: none; color: var(--text);
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer; position: relative; animation: fadeUp 0.5s ease backwards;
-    box-shadow: var(--neon-sm); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  .link-card:hover .link-icon{border-color:var(--gb2);box-shadow:0 0 20px rgba(255,255,255,0.08),inset 0 0 15px rgba(255,255,255,0.04)}
+  .link-icon img{width:100%;height:100%;object-fit:cover;border-radius:16px}
+  .link-icon svg{width:20px;height:20px;fill:var(--text)}
+  .link-text{flex:1;min-width:0;position:relative;z-index:1}
+  .link-label{font-size:clamp(13px,2.5vw,15px);font-weight:700;text-transform:uppercase;letter-spacing:.3px}
+  .link-sub{font-size:clamp(9px,1.5vw,11px);color:var(--muted);font-weight:500;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
+  .link-arrow{
+    position:relative;z-index:1;color:var(--dim);transition:all .35s;
+    flex-shrink:0;width:34px;height:34px;display:flex;align-items:center;
+    justify-content:center;border-radius:12px;background:rgba(255,255,255,0.04);
+    border:1px solid transparent;
   }
-  .link-card:nth-child(1) { animation-delay: 0.05s; }
-  .link-card:nth-child(2) { animation-delay: 0.1s; }
-  .link-card:nth-child(3) { animation-delay: 0.15s; }
-  .link-card:nth-child(4) { animation-delay: 0.2s; }
-  .link-card:nth-child(5) { animation-delay: 0.25s; }
-  .link-card:nth-child(6) { animation-delay: 0.3s; }
-  .link-card:hover {
-    background: var(--glass2); border-color: var(--glass-border2);
-    transform: translateY(-3px); box-shadow: var(--neon-lg);
-    text-shadow: 0 0 8px rgba(255,255,255,0.15);
-  }
-  .link-card:active { transform: scale(0.98); }
-  .link-icon {
-    width: 50px; height: 50px; border-radius: 16px; display: flex; align-items: center;
-    justify-content: center; flex-shrink: 0; position: relative; z-index: 1;
-    background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
-    overflow: hidden; transition: all 0.35s;
-    box-shadow: inset 0 0 10px rgba(255,255,255,0.02);
-  }
-  .link-card:hover .link-icon { border-color: var(--glass-border2); box-shadow: 0 0 20px rgba(255,255,255,0.08), inset 0 0 15px rgba(255,255,255,0.04); }
-  .link-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
-  .link-icon svg { width: 20px; height: 20px; fill: var(--text); }
-  .link-text { flex: 1; min-width: 0; position: relative; z-index: 1; }
-  .link-label { font-size: clamp(13px, 2.5vw, 15px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
-  .link-sub { font-size: clamp(9px, 1.5vw, 11px); color: var(--muted); font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
-  .link-arrow {
-    position: relative; z-index: 1; color: var(--dim); transition: all 0.35s;
-    flex-shrink: 0; width: 34px; height: 34px; display: flex; align-items: center;
-    justify-content: center; border-radius: 12px; background: rgba(255,255,255,0.04);
-    border: 1px solid transparent;
-  }
-  .link-arrow svg { width: 16px; height: 16px; fill: currentColor; }
-  .link-card:hover .link-arrow { color: var(--text); background: rgba(255,255,255,0.08); border-color: var(--glass-border); transform: translateX(5px); }
+  .link-arrow svg{width:16px;height:16px;fill:currentColor}
+  .link-card:hover .link-arrow{color:var(--text);background:rgba(255,255,255,0.08);border-color:var(--gb);transform:translateX(5px)}
 
   /* ===== ADDRESS ===== */
-  .address-card {
-    display: flex; align-items: center; gap: 14px; padding: 18px 20px;
-    background: var(--glass); border: 1px solid var(--glass-border);
-    border-radius: 20px; margin-bottom: 0;
-    box-shadow: var(--neon-sm); backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); transition: all 0.35s;
+  .address-card{
+    display:flex;align-items:center;gap:14px;padding:18px 20px;
+    background:var(--glass);border:1px solid var(--gb);border-radius:20px;
+    box-shadow:0 0 12px rgba(255,255,255,0.03);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    transition:all 0.35s;
   }
-  .address-card:hover { border-color: var(--glass-border2); background: var(--glass2); box-shadow: var(--neon-md); }
-  .address-icon {
-    width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center;
-    justify-content: center; flex-shrink: 0;
-    background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
-    box-shadow: inset 0 0 10px rgba(255,255,255,0.02);
+  .address-card:hover{border-color:var(--gb2);background:var(--glass2);box-shadow:0 0 20px rgba(255,255,255,0.06)}
+  .address-icon{
+    width:44px;height:44px;border-radius:14px;display:flex;align-items:center;
+    justify-content:center;flex-shrink:0;background:rgba(255,255,255,0.05);
+    border:1px solid var(--gb);box-shadow:inset 0 0 10px rgba(255,255,255,0.02);
   }
-  .address-icon svg { width: 20px; height: 20px; fill: var(--text); }
-  .address-line { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-  .address-sub { font-size: 10px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+  .address-icon svg{width:20px;height:20px;fill:var(--text)}
+  .address-line{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+  .address-sub{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+
+  /* ===== PORTFOLIO ===== */
+  .portfolio-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:0}
+  .portfolio-item{
+    position:relative;border-radius:18px;overflow:hidden;aspect-ratio:9/16;
+    background:var(--glass);border:1px solid var(--gb);
+    cursor:pointer;transition:all 0.35s;animation:fadeUp 0.5s ease backwards;
+    box-shadow:0 0 12px rgba(255,255,255,0.03);
+  }
+  .portfolio-item:nth-child(1){animation-delay:.05s}
+  .portfolio-item:nth-child(2){animation-delay:.1s}
+  .portfolio-item:nth-child(3){animation-delay:.15s}
+  .portfolio-item:nth-child(4){animation-delay:.2s}
+  .portfolio-item:nth-child(5){animation-delay:.25s}
+  .portfolio-item:nth-child(6){animation-delay:.3s}
+  .portfolio-item:hover{border-color:rgba(255,255,255,0.25);transform:translateY(-5px) scale(1.02);box-shadow:0 0 30px rgba(255,255,255,0.12),0 0 60px rgba(255,255,255,0.05)}
+  .portfolio-item img{width:100%;height:100%;object-fit:cover;display:block}
+  .portfolio-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,transparent 50%);
+    display:flex;flex-direction:column;justify-content:flex-end;padding:12px;
+    opacity:0;transition:opacity 0.3s;
+  }
+  .portfolio-item:hover .portfolio-overlay{opacity:1}
+  .portfolio-likes{font-size:11px;font-weight:700;display:flex;align-items:center;gap:5px}
+  .portfolio-likes svg{width:14px;height:14px;fill:var(--text)}
+  .portfolio-play{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    opacity:0;transition:opacity 0.3s;
+    box-shadow:0 0 25px rgba(255,255,255,0.1),inset 0 0 15px rgba(255,255,255,0.05);
+  }
+  .portfolio-item:hover .portfolio-play{opacity:1}
+  .portfolio-play svg{width:18px;height:18px;fill:#fff;margin-left:2px}
 
   /* ===== SERVICES ===== */
-  .services { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .service-card {
-    padding: 22px 18px; background: var(--glass); border: 1px solid var(--glass-border);
-    border-radius: 20px; transition: all 0.35s; cursor: default;
-    animation: fadeUp 0.5s ease backwards;
-    box-shadow: var(--neon-sm); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  .services{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .service-card{
+    padding:22px 18px;background:var(--glass);border:1px solid var(--gb);
+    border-radius:20px;transition:all 0.35s;cursor:default;
+    animation:fadeUp 0.5s ease backwards;
+    box-shadow:0 0 12px rgba(255,255,255,0.03);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   }
-  .service-card:nth-child(1) { animation-delay: 0.1s; }
-  .service-card:nth-child(2) { animation-delay: 0.15s; }
-  .service-card:nth-child(3) { animation-delay: 0.2s; }
-  .service-card:nth-child(4) { animation-delay: 0.25s; }
-  .service-card:hover {
-    border-color: var(--glass-border2); background: var(--glass2);
-    transform: translateY(-3px); box-shadow: var(--neon-md);
-  }
-  .service-icon { font-size: 24px; margin-bottom: 12px; display: block; }
-  .service-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-  .service-desc { font-size: 10px; color: var(--muted); line-height: 1.6; font-weight: 400; letter-spacing: 0.3px; }
+  .service-card:nth-child(1){animation-delay:.1s}
+  .service-card:nth-child(2){animation-delay:.15s}
+  .service-card:nth-child(3){animation-delay:.2s}
+  .service-card:nth-child(4){animation-delay:.25s}
+  .service-card:hover{border-color:var(--gb2);background:var(--glass2);transform:translateY(-3px);box-shadow:0 0 20px rgba(255,255,255,0.06)}
+  .service-icon{font-size:24px;margin-bottom:12px;display:block}
+  .service-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+  .service-desc{font-size:10px;color:var(--muted);line-height:1.6;font-weight:400;letter-spacing:.3px}
 
   /* ===== TESTIMONIALS ===== */
-  .testimonials { display: flex; flex-direction: column; gap: 8px; }
-  .testimonial-card {
-    padding: 22px; background: var(--glass); border: 1px solid var(--glass-border);
-    border-radius: 20px; transition: all 0.35s; animation: fadeUp 0.5s ease backwards;
-    box-shadow: var(--neon-sm); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  .testimonials{display:flex;flex-direction:column;gap:8px}
+  .testimonial-card{
+    padding:22px;background:var(--glass);border:1px solid var(--gb);
+    border-radius:20px;transition:all 0.35s;animation:fadeUp 0.5s ease backwards;
+    box-shadow:0 0 12px rgba(255,255,255,0.03);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   }
-  .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
-  .testimonial-card:nth-child(2) { animation-delay: 0.15s; }
-  .testimonial-card:hover { border-color: var(--glass-border2); background: var(--glass2); box-shadow: var(--neon-md); }
-  .testimonial-stars { font-size: 13px; letter-spacing: 3px; margin-bottom: 12px; color: var(--text); text-shadow: 0 0 8px rgba(255,255,255,0.2); }
-  .testimonial-text { font-size: 13px; line-height: 1.7; color: var(--muted); font-weight: 400; margin-bottom: 14px; font-style: italic; }
-  .testimonial-author { display: flex; align-items: center; gap: 12px; }
-  .testimonial-avatar {
-    width: 36px; height: 36px; border-radius: 50%; background: var(--glass2);
-    border: 1px solid var(--glass-border); display: flex; align-items: center;
-    justify-content: center; font-size: 13px; font-weight: 700; color: var(--text); flex-shrink: 0;
-    box-shadow: inset 0 0 8px rgba(255,255,255,0.03);
+  .testimonial-card:nth-child(1){animation-delay:.1s}
+  .testimonial-card:nth-child(2){animation-delay:.15s}
+  .testimonial-card:hover{border-color:var(--gb2);background:var(--glass2);box-shadow:0 0 20px rgba(255,255,255,0.06)}
+  .testimonial-stars{font-size:13px;letter-spacing:3px;margin-bottom:12px;color:var(--text);text-shadow:0 0 8px rgba(255,255,255,0.2)}
+  .testimonial-text{font-size:13px;line-height:1.7;color:var(--muted);font-weight:400;margin-bottom:14px;font-style:italic}
+  .testimonial-author{display:flex;align-items:center;gap:12px}
+  .testimonial-avatar{
+    width:36px;height:36px;border-radius:50%;background:var(--glass2);
+    border:1px solid var(--gb);display:flex;align-items:center;
+    justify-content:center;font-size:13px;font-weight:700;color:var(--text);flex-shrink:0;
+    box-shadow:inset 0 0 8px rgba(255,255,255,0.03);
   }
-  .testimonial-name { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-  .testimonial-handle { font-size: 9px; color: var(--muted); letter-spacing: 1px; }
+  .testimonial-name{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+  .testimonial-handle{font-size:9px;color:var(--muted);letter-spacing:1px}
 
   /* ===== FOOTER ===== */
-  .footer { margin-top: auto; padding-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 18px; }
-  .footer-links { display: flex; align-items: center; gap: 28px; }
-  .footer-links a {
-    font-size: 10px; color: var(--muted); text-decoration: none; text-transform: uppercase;
-    letter-spacing: 3px; font-weight: 600; transition: all 0.3s; padding: 4px 0;
+  .footer{margin-top:auto;padding-top:40px;display:flex;flex-direction:column;align-items:center;gap:18px}
+  .footer-links{display:flex;align-items:center;gap:28px}
+  .footer-links a{
+    font-size:10px;color:var(--muted);text-decoration:none;text-transform:uppercase;
+    letter-spacing:3px;font-weight:600;transition:all 0.3s;padding:4px 0;
   }
-  .footer-links a:hover { color: var(--text); text-shadow: var(--neon-text); }
-  .footer-copy { font-size: 10px; color: #666; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; text-align: center; }
-  .footer-copy a { color: #fff; text-decoration: none; font-weight: 700; transition: all 0.3s; }
-  .footer-copy a:hover { text-shadow: var(--neon-text); }
+  .footer-links a:hover{color:var(--text);text-shadow:0 0 15px rgba(255,255,255,0.3)}
+  .footer-copy{font-size:10px;color:#666;letter-spacing:2px;text-transform:uppercase;font-weight:500;text-align:center}
+  .footer-copy a{color:#fff;text-decoration:none;font-weight:700;transition:all 0.3s}
+  .footer-copy a:hover{text-shadow:0 0 15px rgba(255,255,255,0.3)}
 
-  /* ===== ANIMATIONS ===== */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
-  @keyframes spin { to { transform: rotate(360deg); } }
+  /* ===== KEYFRAMES ===== */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.2}}
+  @keyframes spin{to{transform:rotate(360deg)}}
 
   /* ===== RESPONSIVE ===== */
-  @media (max-width: 768px) {
-    .wrapper { max-width: 560px; padding: 48px 24px 64px; }
-    .stats { gap: 0; }
-    .portfolio-grid { gap: 6px; }
-    .portfolio-item { border-radius: 14px; }
+  @media(max-width:768px){
+    .wrapper{max-width:560px;padding:48px 24px 64px}
+    .stats{gap:0}
+    .portfolio-grid{gap:6px}
+    .portfolio-item{border-radius:14px}
   }
-  @media (max-width: 480px) {
-    .wrapper { max-width: 100%; padding: 32px 16px 48px; }
-    .avatar-ring { width: 88px; height: 88px; margin-bottom: 16px; }
-    .profile { margin-bottom: 36px; }
-    .stat { padding: 14px 0; }
-    .stat-number { font-size: clamp(18px, 4vw, 24px); }
-    .section-label { margin-bottom: 10px; }
-    .section-label + .section-label { margin-top: 28px; }
-    .portfolio-grid { grid-template-columns: 1fr 1fr; gap: 4px; }
-    .portfolio-item { border-radius: 12px; }
-    .portfolio-item:nth-child(n+5) { display: none; }
-    .portfolio-play { width: 36px; height: 36px; }
-    .portfolio-play svg { width: 14px; height: 14px; }
-    .services { grid-template-columns: 1fr; }
-    .service-card { padding: 16px; border-radius: 16px; }
-    .testimonial-card { padding: 16px; border-radius: 16px; }
-    .testimonial-text { font-size: 12px; }
-    .link-card { padding: 14px 12px; gap: 12px; border-radius: 14px; }
-    .link-icon { width: 44px; height: 44px; border-radius: 12px; }
-    .link-icon svg { width: 16px; height: 16px; }
-    .link-arrow { width: 28px; height: 28px; border-radius: 10px; }
-    .link-arrow svg { width: 14px; height: 14px; }
-    .footer { padding-top: 28px; gap: 14px; }
-    .footer-links { gap: 18px; flex-wrap: wrap; justify-content: center; }
+  @media(max-width:480px){
+    .wrapper{max-width:100%;padding:32px 16px 48px}
+    .avatar-ring{width:88px;height:88px;margin-bottom:16px}
+    .profile{margin-bottom:36px}
+    .stat{padding:14px 0}
+    .section-label{margin-bottom:10px}
+    .section-label+.section-label{margin-top:28px}
+    .portfolio-grid{grid-template-columns:1fr 1fr;gap:4px}
+    .portfolio-item{border-radius:12px}
+    .portfolio-item:nth-child(n+5){display:none}
+    .services{grid-template-columns:1fr}
+    .service-card{padding:16px;border-radius:16px}
+    .testimonial-card{padding:16px;border-radius:16px}
+    .testimonial-text{font-size:12px}
+    .link-card{padding:14px 12px;gap:12px;border-radius:14px}
+    .link-icon{width:44px;height:44px;border-radius:12px}
+    .link-icon svg{width:16px;height:16px}
+    .link-arrow{width:28px;height:28px;border-radius:10px}
+    .link-arrow svg{width:14px;height:14px}
+    .footer{padding-top:28px;gap:14px}
+    .footer-links{gap:18px;flex-wrap:wrap;justify-content:center}
+    .follow-btn{padding:12px 28px;font-size:11px}
   }
-  @media (max-width: 360px) {
-    .wrapper { padding: 24px 10px 40px; }
-    .link-card { padding: 12px 10px; }
+  @media(max-width:360px){
+    .wrapper{padding:24px 10px 40px}
+    .link-card{padding:12px 10px}
   }
-  @media (min-width: 1200px) {
-    .wrapper { max-width: 740px; padding: 80px 40px 88px; }
-    .avatar-ring { width: 120px; height: 120px; }
-    .link-icon { width: 54px; height: 54px; border-radius: 18px; }
+  @media(min-width:1200px){
+    .wrapper{max-width:740px;padding:80px 40px 88px}
+    .avatar-ring{width:120px;height:120px}
+    .link-icon{width:54px;height:54px;border-radius:18px}
   }
 </style>
 </head>
 <body>
 
-<!-- Loading Screen -->
 <div id="loader">
   <div class="loader-letter">S</div>
   <div class="loader-bar"></div>
@@ -426,18 +392,11 @@
     <div class="avatar-ring">
       <img src="assets/samxeditz.jpg" alt="samxeditz.56">
     </div>
-    <div class="username">@samxeditz.56<span class="verified-badge"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"/></svg></span></div>
-    <div class="tagline">
-      Video Editing <span class="pipe"></span> Reels <span class="pipe"></span> <span class="brand">CapCut</span>
-    </div>
-    <div class="status">
-      <div class="status-dot"></div>
-      Open for Collabs
-    </div>
+    <div class="username">@samxeditz.56<span class="verified-badge"><svg viewBox="0 0 24 24"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"/></svg></span></div>
+    <div class="tagline">Video Editing <span class="pipe"></span> Reels <span class="pipe"></span> <span class="brand">CapCut</span></div>
+    <div class="status"><div class="status-dot"></div>Open for Collabs</div>
     <a href="https://www.instagram.com/samxeditz.56" target="_blank" class="follow-btn">
-      <span class="follow-icon">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-      </span>
+      <span class="follow-icon"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span>
       <span class="follow-text">Follow on Instagram</span>
       <span class="follow-arrow">→</span>
     </a>
@@ -445,65 +404,21 @@
 
   <!-- Stats -->
   <div class="stats">
-    <div class="stat">
-      <div class="stat-number" data-target="149" data-suffix="">0</div>
-      <div class="stat-label">Posts</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number" data-target="231" data-suffix="">0</div>
-      <div class="stat-label">Followers</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number" data-target="50" data-suffix="+">0</div>
-      <div class="stat-label">Projects</div>
-    </div>
+    <div class="stat"><div class="stat-number" data-target="149" data-suffix="">0</div><div class="stat-label">Posts</div></div>
+    <div class="stat"><div class="stat-number" data-target="231" data-suffix="">0</div><div class="stat-label">Followers</div></div>
+    <div class="stat"><div class="stat-number" data-target="50" data-suffix="+">0</div><div class="stat-label">Projects</div></div>
   </div>
 
-  <!-- Portfolio -->
-  <div class="section-label">Portfolio</div>
-  <div class="portfolio-grid">
-    <a href="https://www.instagram.com/reel/DZCH1jjNg-a/" target="_blank" class="portfolio-item">
-      <img src="assets/reel1.jpg" alt="Reel" loading="lazy">
-      <div class="portfolio-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="portfolio-overlay"><div class="portfolio-likes"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 20</div></div>
-    </a>
-    <a href="https://www.instagram.com/reel/DZCY6o8tmqF/" target="_blank" class="portfolio-item">
-      <img src="assets/reel2.jpg" alt="Reel" loading="lazy">
-      <div class="portfolio-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="portfolio-overlay"><div class="portfolio-likes"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 49</div></div>
-    </a>
-    <a href="https://www.instagram.com/reel/DZAqEfASShs/" target="_blank" class="portfolio-item">
-      <img src="assets/reel3.jpg" alt="Reel" loading="lazy">
-      <div class="portfolio-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="portfolio-overlay"><div class="portfolio-likes"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 150</div></div>
-    </a>
-    <a href="https://www.instagram.com/reel/DYwKa4Zv2Js/" target="_blank" class="portfolio-item">
-      <img src="assets/reel4.jpg" alt="Reel" loading="lazy">
-      <div class="portfolio-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="portfolio-overlay"><div class="portfolio-likes"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 80</div></div>
-    </a>
-    <a href="https://www.instagram.com/reel/DYiyZmzNz76/" target="_blank" class="portfolio-item">
-      <img src="assets/reel5.jpg" alt="Reel" loading="lazy">
-      <div class="portfolio-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="portfolio-overlay"><div class="portfolio-likes"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 94</div></div>
-    </a>
-    <a href="https://www.instagram.com/reel/DYcPc-Zvm3R/" target="_blank" class="portfolio-item">
-      <img src="assets/reel6.jpg" alt="Reel" loading="lazy">
-      <div class="portfolio-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="portfolio-overlay"><div class="portfolio-likes"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 128</div></div>
-    </a>
-  </div>
-
-  <!-- Link-in-bio section -->
+  <!-- Links -->
   <div class="section-label">Links</div>
   <div class="links">
     <a href="https://www.instagram.com/samxeditz.56" target="_blank" class="link-card">
-      <div class="link-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+      <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg></div>
       <div class="link-text"><div class="link-label">Follow on Instagram</div><div class="link-sub">@samxeditz.56</div></div>
       <div class="link-arrow"><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg></div>
     </a>
     <a href="https://www.instagram.com/samxeditz.56" target="_blank" class="link-card">
-      <div class="link-icon" style="background: rgba(255,255,255,0.1);"><svg viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" fill="#fff"/></svg></div>
+      <div class="link-icon" style="background:rgba(255,255,255,0.1)"><svg viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" fill="#fff"/></svg></div>
       <div class="link-text"><div class="link-label">Latest Edits & Reels</div><div class="link-sub">Watch my newest work</div></div>
       <div class="link-arrow"><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg></div>
     </a>
@@ -514,82 +429,60 @@
     </a>
   </div>
 
-  <!-- Address -->
-  <div class="section-label">Location</div>
-  <div class="address-card">
-    <div class="address-icon">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-    </div>
-    <div class="address-text">
-      <div class="address-line">Visakhapatnam, Andhra Pradesh</div>
-      <div class="address-sub">India 🇮🇳</div>
-    </div>
-  </div>
-
   <!-- Contact -->
   <div class="section-label">Contact</div>
   <div class="links">
     <a href="https://wa.me/919291493225?text=Hey!%20I%20saw%20your%20edits%20on%20Instagram" target="_blank" class="link-card">
-      <div class="link-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+      <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
       <div class="link-text"><div class="link-label">WhatsApp</div><div class="link-sub">Collabs & inquiries</div></div>
       <div class="link-arrow"><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg></div>
     </a>
     <a href="mailto:sampathlox@gmail.com?subject=Collab%20Inquiry" class="link-card">
-      <div class="link-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+      <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
       <div class="link-text"><div class="link-label">Email</div><div class="link-sub">sampathlox@gmail.com</div></div>
       <div class="link-arrow"><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg></div>
     </a>
   </div>
 
+  <!-- Address -->
+  <div class="section-label">Location</div>
+  <div class="address-card">
+    <div class="address-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+    <div><div class="address-line">Visakhapatnam, Andhra Pradesh</div><div class="address-sub">India 🇮🇳</div></div>
+  </div>
+
+  <!-- Portfolio -->
+  <div class="section-label">Portfolio</div>
+  <div class="portfolio-grid">
+    <a href="https://www.instagram.com/reel/DZCH1jjNg-a/" target="_blank" class="portfolio-item"><img src="assets/reel1.jpg" alt="Reel" loading="lazy"><div class="portfolio-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="portfolio-overlay"><div class="portfolio-likes">❤ 20</div></div></a>
+    <a href="https://www.instagram.com/reel/DZCY6o8tmqF/" target="_blank" class="portfolio-item"><img src="assets/reel2.jpg" alt="Reel" loading="lazy"><div class="portfolio-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="portfolio-overlay"><div class="portfolio-likes">❤ 49</div></div></a>
+    <a href="https://www.instagram.com/reel/DZAqEfASShs/" target="_blank" class="portfolio-item"><img src="assets/reel3.jpg" alt="Reel" loading="lazy"><div class="portfolio-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="portfolio-overlay"><div class="portfolio-likes">❤ 150</div></div></a>
+    <a href="https://www.instagram.com/reel/DYwKa4Zv2Js/" target="_blank" class="portfolio-item"><img src="assets/reel4.jpg" alt="Reel" loading="lazy"><div class="portfolio-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="portfolio-overlay"><div class="portfolio-likes">❤ 80</div></div></a>
+    <a href="https://www.instagram.com/reel/DYiyZmzNz76/" target="_blank" class="portfolio-item"><img src="assets/reel5.jpg" alt="Reel" loading="lazy"><div class="portfolio-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="portfolio-overlay"><div class="portfolio-likes">❤ 94</div></div></a>
+    <a href="https://www.instagram.com/reel/DYcPc-Zvm3R/" target="_blank" class="portfolio-item"><img src="assets/reel6.jpg" alt="Reel" loading="lazy"><div class="portfolio-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="portfolio-overlay"><div class="portfolio-likes">❤ 128</div></div></a>
+  </div>
+
   <!-- Services -->
   <div class="section-label">Services</div>
   <div class="services">
-    <div class="service-card">
-      <span class="service-icon">🎬</span>
-      <div class="service-title">Reels & Shorts</div>
-      <div class="service-desc">Trendy, scroll-stopping Instagram reels and YouTube shorts</div>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">✂️</span>
-      <div class="service-title">Transition Edits</div>
-      <div class="service-desc">Smooth, viral-worthy transitions using CapCut presets</div>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🎨</span>
-      <div class="service-title">Color Grading</div>
-      <div class="service-desc">Cinematic LUTs and color correction for a pro look</div>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">📱</span>
-      <div class="service-title">Content Creator</div>
-      <div class="service-desc">Full content pipeline — ideation to final export</div>
-    </div>
+    <div class="service-card"><span class="service-icon">🎬</span><div class="service-title">Reels & Shorts</div><div class="service-desc">Trendy, scroll-stopping Instagram reels and YouTube shorts</div></div>
+    <div class="service-card"><span class="service-icon">✂️</span><div class="service-title">Transition Edits</div><div class="service-desc">Smooth, viral-worthy transitions using CapCut presets</div></div>
+    <div class="service-card"><span class="service-icon">🎨</span><div class="service-title">Color Grading</div><div class="service-desc">Cinematic LUTs and color correction for a pro look</div></div>
+    <div class="service-card"><span class="service-icon">📱</span><div class="service-title">Content Creator</div><div class="service-desc">Full content pipeline — ideation to final export</div></div>
   </div>
 
-  <!-- Testimonials -->
+  <!-- Reviews -->
   <div class="section-label">Reviews</div>
   <div class="testimonials">
     <div class="testimonial-card">
       <div class="testimonial-stars">★ ★ ★ ★ ★</div>
       <div class="testimonial-text">"Sam's edits are insane. My reel got 50K+ views after he edited it. The transitions were so smooth, people thought I hired a professional agency."</div>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">V</div>
-        <div>
-          <div class="testimonial-name">@vamsi.creates</div>
-          <div class="testimonial-handle">Instagram Creator</div>
-        </div>
-      </div>
+      <div class="testimonial-author"><div class="testimonial-avatar">V</div><div><div class="testimonial-name">@vamsi.creates</div><div class="testimonial-handle">Instagram Creator</div></div></div>
     </div>
     <div class="testimonial-card">
       <div class="testimonial-stars">★ ★ ★ ★ ★</div>
       <div class="testimonial-text">"Best CapCut editor I've worked with. Quick turnaround, understands the vibe perfectly, and delivers every single time."</div>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">P</div>
-        <div>
-          <div class="testimonial-name">@priya.edits</div>
-          <div class="testimonial-handle">Content Creator</div>
-        </div>
-      </div>
+      <div class="testimonial-author"><div class="testimonial-avatar">P</div><div><div class="testimonial-name">@priya.edits</div><div class="testimonial-handle">Content Creator</div></div></div>
     </div>
   </div>
 
@@ -600,41 +493,31 @@
       <a href="https://wa.me/919291493225">WhatsApp</a>
       <a href="mailto:sampathlox@gmail.com">Email</a>
     </div>
-    <div class="footer-copy">
-      © <span id="year"></span> samxeditz.56 · Crafted by <a href="https://www.instagram.com/sampath.exe">@sampath.exe</a>
-    </div>
+    <div class="footer-copy">© <span id="year"></span> samxeditz.56 · Crafted by <a href="https://www.instagram.com/sampath.exe">@sampath.exe</a></div>
   </div>
 
 </div>
 
 <script>
-  window.addEventListener('load', function() {
-    setTimeout(function() {
+  window.addEventListener('load',function(){
+    setTimeout(function(){
       document.getElementById('loader').classList.add('hidden');
       document.querySelector('.wrapper').classList.add('visible');
-    }, 800);
+    },800);
   });
-  document.getElementById('year').textContent = new Date().getFullYear();
-  function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number[data-target]');
-    const duration = 1800;
-    const startTime = performance.now();
-    function easeOutExpo(t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }
-    function update(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = easeOutExpo(progress);
-      counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const suffix = counter.getAttribute('data-suffix') || '';
-        counter.textContent = Math.round(target * eased) + suffix;
-      });
-      if (progress < 1) requestAnimationFrame(update);
+  document.getElementById('year').textContent=new Date().getFullYear();
+  function animateCounters(){
+    const c=document.querySelectorAll('.stat-number[data-target]');
+    const d=1800,s=performance.now();
+    function e(t){return t===1?1:1-Math.pow(2,-10*t)}
+    function u(t){
+      const el=t-s,p=Math.min(el/d,1),ea=e(p);
+      c.forEach(x=>{const tg=parseInt(x.getAttribute('data-target'));const sf=x.getAttribute('data-suffix')||'';x.textContent=Math.round(tg*ea)+sf});
+      if(p<1)requestAnimationFrame(u);
     }
-    requestAnimationFrame(update);
+    requestAnimationFrame(u);
   }
-  window.addEventListener('load', function() { setTimeout(animateCounters, 1200); });
+  window.addEventListener('load',function(){setTimeout(animateCounters,1200)});
 </script>
-
 </body>
 </html>
