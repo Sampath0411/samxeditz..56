@@ -165,10 +165,10 @@
   .buy-cta svg{width:20px;height:20px;fill:#fff}
 
   /* ===== BUY MODAL ===== */
-  .buy-modal{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:all 0.3s;padding:40px 20px;overflow-y:auto}
+  .buy-modal{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:all 0.3s}
   .buy-modal.show{opacity:1;visibility:visible}
-  .buy-modal-inner{width:100%;max-width:380px;padding:28px;border-radius:20px;background:#0a0a0a;border:1px solid var(--gb);text-align:center;transform:translateY(30px) scale(0.95);transition:all 0.35s cubic-bezier(0.4,0,0,0.2,1);flex-shrink:0}
-  .buy-modal.show .buy-modal-inner{transform:translateY(0) scale(1)}
+  .buy-modal-inner{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) translateY(30px) scale(0.95);width:100%;max-width:380px;padding:28px;border-radius:20px;background:#0a0a0a;border:1px solid var(--gb);text-align:center;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);max-height:85vh;overflow-y:auto}
+  .buy-modal.show .buy-modal-inner{transform:translate(-50%,-50%) scale(1)}
   .buy-modal-x{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;background:var(--glass);border:1px solid var(--gb);color:var(--muted);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s;z-index:1}
   .buy-modal-x:hover{background:var(--glass2);color:var(--text)}
   .buy-modal-emoji{font-size:36px;margin-bottom:8px}
