@@ -40,6 +40,62 @@
     background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.6' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.01'/%3E%3C/svg%3E");
   }
 
+  /* ===== NAVBAR ===== */
+  .navbar{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:center;
+    padding:16px 24px;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--gb);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    width:100%;max-width:680px;
+  }
+  .nav-logo{
+    font-size:16px;font-weight:900;color:var(--text);text-transform:uppercase;
+    letter-spacing:3px;text-decoration:none;
+    text-shadow:0 0 15px rgba(255,255,255,0.15);
+  }
+  .nav-toggle{
+    display:flex;align-items:center;gap:10px;
+    background:var(--glass);border:1px solid var(--gb);
+    border-radius:30px;padding:4px;cursor:pointer;
+    transition:all 0.35s;
+    box-shadow:0 0 12px rgba(255,255,255,0.04);
+  }
+  .nav-toggle:hover{border-color:var(--gb2);box-shadow:0 0 20px rgba(255,255,255,0.08)}
+  .nav-mode{
+    padding:8px 20px;border-radius:24px;font-size:11px;font-weight:700;
+    text-transform:uppercase;letter-spacing:2px;transition:all 0.35s;
+    color:var(--muted);text-decoration:none;white-space:nowrap;
+  }
+  .nav-mode.active{
+    background:var(--text);color:#000;
+    box-shadow:0 0 15px rgba(255,255,255,0.2);
+  }
+  .nav-mode:not(.active):hover{color:var(--text)}
+  .dev-badge{
+    display:none;align-items:center;justify-content:center;
+    width:8px;height:80%;border-radius:50%;
+    background:#c8ff00;margin-left:4px;
+    box-shadow:0 0 8px rgba(200,255,0,0.5);
+    animation:devPulse 2s ease-in-out infinite;
+  }
+  .nav-mode.active .dev-badge{display:inline-flex}
+  @keyframes devPulse{0%,100%{opacity:1;box-shadow:0 0 8px rgba(200,255,0,0.5)}50%{opacity:0.5;box-shadow:0 0 15px rgba(200,255,0,0.8)}}
+
+  body{padding-top:70px}
+
+  @media(max-width:480px){
+    .navbar{padding:12px 16px}
+    .nav-logo{font-size:13px;letter-spacing:2px}
+    .nav-mode{padding:6px 14px;font-size:10px;letter-spacing:1px}
+    .nav-toggle{gap:6px}
+    body{padding-top:60px}
+  }
+
   /* ===== LOADER ===== */
   #loader{
     position:fixed;inset:0;background:#000;z-index:9999;
@@ -380,6 +436,17 @@
 </head>
 <body>
 
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">samxeditz</a>
+    <div class="nav-toggle" id="navToggle">
+      <a href="#" class="nav-mode active" id="editzMode" onclick="setMode('editz');return false;">Editz</a>
+      <a href="https://sampath-portfolio0411.vercel.app/" class="nav-mode" id="devMode" onclick="setMode('dev');return false;">Dev<span class="dev-badge"></span></a>
+    </div>
+  </div>
+</nav>
+
 <div id="loader">
   <div class="loader-letter">S</div>
   <div class="loader-bar"></div>
@@ -513,6 +580,20 @@
     requestAnimationFrame(u);
   }
   window.addEventListener('load',function(){setTimeout(animateCounters,1200)});
+
+  // Navbar toggle
+  function setMode(mode){
+    const editz=document.getElementById('editzMode');
+    const dev=document.getElementById('devMode');
+    if(mode==='editz'){
+      editz.classList.add('active');
+      dev.classList.remove('active');
+    } else {
+      editz.classList.remove('active');
+      dev.classList.add('active');
+      window.location.href='https://sampath-portfolio0411.vercel.app/';
+    }
+  }
 </script>
 </body>
 </html>
