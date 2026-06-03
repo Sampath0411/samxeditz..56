@@ -96,6 +96,73 @@
     body{padding-top:60px}
   }
 
+  /* ===== CUSTOM SCROLLBAR ===== */
+  ::-webkit-scrollbar{width:6px}
+  ::-webkit-scrollbar-track{background:transparent}
+  ::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:10px}
+  ::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.25)}
+  html{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.15) transparent}
+
+  /* ===== CURSOR GLOW ===== */
+  .cursor-glow{
+    position:fixed;width:300px;height:300px;border-radius:50%;pointer-events:none;z-index:0;
+    background:radial-gradient(circle,rgba(255,255,255,0.03) 0%,transparent 70%);
+    transform:translate(-50%,-50%);transition:opacity 0.3s;
+  }
+
+  /* ===== PAGE TRANSITION ===== */
+  .page-transition{
+    position:fixed;inset:0;background:#000;z-index:9998;
+    opacity:0;pointer-events:none;transition:opacity 0.5s ease;
+  }
+  .page-transition.active{opacity:1;pointer-events:all}
+
+  /* ===== NAV LINKS (scroll nav) ===== */
+  .nav-links{display:flex;align-items:center;gap:6px}
+  .nav-link{
+    padding:6px 14px;border-radius:20px;font-size:10px;font-weight:600;
+    text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);
+    text-decoration:none;transition:all 0.3s;white-space:nowrap;
+  }
+  .nav-link:hover{color:var(--text);background:var(--glass)}
+  .nav-link.active{color:var(--text);background:var(--glass);border:1px solid var(--gb)}
+
+  @media(max-width:768px){
+    .nav-links{display:none}
+  }
+
+  /* ===== CTA / HIRE ME ===== */
+  .cta-card{
+    padding:28px 32px;background:var(--glass);border:1px solid var(--gb);
+    border-radius:22px;text-align:center;
+    box-shadow:0 0 12px rgba(255,255,255,0.03);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    transition:all 0.35s;position:relative;overflow:hidden;
+  }
+  .cta-card::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(255,255,255,0.04) 0%,transparent 60%);
+    pointer-events:none;
+  }
+  .cta-card:hover{border-color:var(--gb2);background:var(--glass2);box-shadow:0 0 25px rgba(255,255,255,0.06)}
+  .cta-title{font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;position:relative}
+  .cta-sub{font-size:12px;color:var(--muted);margin-bottom:18px;position:relative}
+  .cta-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 28px;border-radius:100px;
+    background:linear-gradient(135deg,#f9ce34 0%,#ee2a7b 50%,#6228d7 100%);
+    color:#fff;font-size:12px;font-weight:800;text-transform:uppercase;
+    letter-spacing:2px;text-decoration:none;border:none;cursor:pointer;
+    transition:all 0.35s;
+    box-shadow:0 0 20px rgba(232,42,123,0.3),0 0 40px rgba(98,40,215,0.1);
+    position:relative;
+  }
+  .cta-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 30px rgba(232,42,123,0.5),0 0 60px rgba(98,40,215,0.2);
+  }
+  .cta-btn svg{width:16px;height:16px;fill:#fff}
+
   /* ===== LOADER ===== */
   #loader{
     position:fixed;inset:0;background:#000;z-index:9999;
@@ -436,10 +503,22 @@
 </head>
 <body>
 
+<!-- Cursor glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- Page transition overlay -->
+<div class="page-transition" id="pageTransition"></div>
+
 <!-- Navbar -->
 <nav class="navbar">
   <div class="nav-inner">
     <a href="#" class="nav-logo">samxeditz</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#links" class="nav-link active">Links</a>
+      <a href="#portfolio" class="nav-link">Work</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
     <div class="nav-toggle" id="navToggle">
       <a href="#" class="nav-mode active" id="editzMode" onclick="setMode('editz');return false;">Editz</a>
       <a href="https://sampath-portfolio0411.vercel.app/" class="nav-mode" id="devMode" onclick="setMode('dev');return false;">Dev<span class="dev-badge"></span></a>
@@ -477,7 +556,7 @@
   </div>
 
   <!-- Links -->
-  <div class="section-label">Links</div>
+  <div id="links" class="section-label">Links</div>
   <div class="links">
     <a href="https://www.instagram.com/samxeditz.56" target="_blank" class="link-card">
       <div class="link-icon" style="background:rgba(255,255,255,0.1)"><svg viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" fill="#fff"/></svg></div>
@@ -492,7 +571,7 @@
   </div>
 
   <!-- Contact -->
-  <div class="section-label">Contact</div>
+  <div id="contact" class="section-label">Contact</div>
   <div class="links">
     <a href="https://wa.me/919291493225?text=Hey!%20I%20saw%20your%20edits%20on%20Instagram" target="_blank" class="link-card">
       <div class="link-icon"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
@@ -513,8 +592,19 @@
     <div><div class="address-line">Visakhapatnam, Andhra Pradesh</div><div class="address-sub">India 🇮🇳</div></div>
   </div>
 
+  <!-- Hire Me CTA -->
+  <div class="section-label">Let's Work</div>
+  <div class="cta-card">
+    <div class="cta-title">Ready to level up your content?</div>
+    <div class="cta-sub">Professional edits that make your reels go viral. Let's create something amazing together.</div>
+    <a href="https://wa.me/919291493225?text=Hey!%20I%20want%20to%20work%20with%20you%20on%20some%20edits" target="_blank" class="cta-btn">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Hire Me
+    </a>
+  </div>
+
   <!-- Portfolio -->
-  <div class="section-label">Portfolio</div>
+  <div id="portfolio" class="section-label">Portfolio</div>
   <div class="portfolio-grid">
     <a href="https://www.instagram.com/reel/DZCH1jjNg-a/" target="_blank" class="portfolio-item"><img src="assets/reel1.jpg" alt="Reel" loading="lazy"><div class="portfolio-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="portfolio-overlay"><div class="portfolio-likes">❤ 20</div></div></a>
     <a href="https://www.instagram.com/reel/DZCY6o8tmqF/" target="_blank" class="portfolio-item"><img src="assets/reel2.jpg" alt="Reel" loading="lazy"><div class="portfolio-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="portfolio-overlay"><div class="portfolio-likes">❤ 49</div></div></a>
@@ -525,7 +615,7 @@
   </div>
 
   <!-- Services -->
-  <div class="section-label">Services</div>
+  <div id="services" class="section-label">Services</div>
   <div class="services">
     <div class="service-card"><span class="service-icon">🎬</span><div class="service-title">Reels & Shorts</div><div class="service-desc">Trendy, scroll-stopping Instagram reels and YouTube shorts</div></div>
     <div class="service-card"><span class="service-icon">✂️</span><div class="service-title">Transition Edits</div><div class="service-desc">Smooth, viral-worthy transitions using CapCut presets</div></div>
@@ -617,6 +707,45 @@
       if(e.newValue==='dev'){editz.classList.remove('active');dev.classList.add('active')}
       else{editz.classList.add('active');dev.classList.remove('active')}
     }
+  });
+
+  // Cursor glow follow
+  const glow=document.getElementById('cursorGlow');
+  document.addEventListener('mousemove',function(e){
+    if(glow) glow.style.left=e.clientX+'px';
+    if(glow) glow.style.top=e.clientY+'px';
+  });
+
+  // Page transition for external links
+  document.querySelectorAll('a[href*="http"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      const href=a.getAttribute('href');
+      if(href.indexOf(window.location.hostname)===-1 && !href.includes('wa.me') && !href.includes('mailto:')){
+        e.preventDefault();
+        const pt=document.getElementById('pageTransition');
+        pt.classList.add('active');
+        setTimeout(function(){window.location.href=href},500);
+      }
+    });
+  });
+
+  // Scroll-based nav highlighting
+  const sections=['links','contact','portfolio','services'];
+  const navLinks={};
+  sections.forEach(function(s){navLinks[s]=document.querySelector('.nav-link[href="#'+s+'"]')});
+
+  window.addEventListener('scroll',function(){
+    var current='links';
+    sections.forEach(function(s){
+      var el=document.getElementById(s);
+      if(el&&el.getBoundingClientRect().top<=150) current=s;
+    });
+    sections.forEach(function(s){
+      if(navLinks[s]){
+        if(s===current) navLinks[s].classList.add('active');
+        else navLinks[s].classList.remove('active');
+      }
+    });
   });
 </script>
 </body>
